@@ -144,6 +144,22 @@ export default function ResumePage() {
           ))}
         </ResumeSection>
 
+        {resume.publications.length > 0 && (
+          <ResumeSection title="Publications">
+            <ul className="list-disc space-y-2 pl-5 text-[0.9375rem] leading-6 marker:text-muted-foreground">
+              {resume.publications.map((publication) => (
+                <li key={publication.title}>
+                  <span className="font-medium">{publication.title}.</span>{" "}
+                  <span className="text-muted-foreground">
+                    {publication.venue}
+                    {publication.doi && `. DOI: ${publication.doi}`}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </ResumeSection>
+        )}
+
         {resume.experience.length > 0 && (
           <ResumeSection title="Experience">
             {resume.experience.map((item) => (
@@ -169,7 +185,11 @@ export default function ResumePage() {
                 subtitle={project.technologies.join(", ")}
                 period={project.year}
               >
-                <p>{project.description}</p>
+                {project.highlights.length > 0 ? (
+                  <Bullets items={project.highlights} />
+                ) : (
+                  <p>{project.description}</p>
+                )}
               </ResumeItem>
             ))}
           </ResumeSection>
@@ -194,7 +214,9 @@ export default function ResumePage() {
               <ResumeItem
                 key={achievement.title}
                 title={achievement.title}
-                subtitle={achievement.issuer}
+                subtitle={[achievement.issuer, achievement.description]
+                  .filter(Boolean)
+                  .join(" · ")}
                 period={achievement.year}
               />
             ))}

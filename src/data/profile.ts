@@ -1,49 +1,74 @@
 import type { Profile } from "@/types/content";
 
-// PLACEHOLDER CONTENT: replace everything in this file with your own details.
 export const profile: Profile = {
   name: "Sumaiya Zaman",
   initials: "SZ",
-  role: "Computer Science undergraduate",
-  university: "Your University",
-  location: "City, Country",
+  role: "Computer Science & Engineering undergraduate",
+  university: "CUET",
+  location: "Chittagong, Bangladesh",
   tagline:
-    "I'm an undergraduate student learning to build useful software and exploring machine learning research.",
+    "I'm a Computer Science and Engineering undergraduate at Chittagong University of Engineering and Technology, doing research in natural language processing and multimodal AI.",
   intro: [
-    "I'm in my third year of a Computer Science degree. Most of my time goes into coursework, side projects, and reading papers I only half understand the first time through.",
-    "This site is my notebook: what I've built, what I'm studying, and what I learned along the way.",
+    "I study Computer Science and Engineering at Chittagong University of Engineering and Technology (CUET). My research is in natural language processing, multimodal AI, computer vision and vision-language models, with papers published at ACL-affiliated workshops and international conferences.",
+    "I also build web applications, and I'm interested in making AI-powered software that people can rely on.",
   ],
-  focus: ["Machine learning", "Web development", "Data structures & algorithms"],
+  focus: [
+    "Natural language processing",
+    "Multimodal AI",
+    "Computer vision",
+    "Vision-language models",
+  ],
+  // Add a photo at public/images/profile.jpg, then set this to "/images/profile.jpg".
   photo: null,
-  email: "you@example.com",
+  email: "sumaiya.zaman2107@gmail.com",
   resumePdf: "/resume.pdf",
   social: [
-    { platform: "github", label: "GitHub", href: "https://github.com/sumaiyaa110" },
-    { platform: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/sumaiya-zaman-bb2a17353/" },
-    { platform: "email", label: "Email", href: "mailto:you@example.com" },
+    {
+      platform: "github",
+      label: "GitHub",
+      href: "https://github.com/sumaiyaa110",
+    },
+    {
+      platform: "linkedin",
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/sumaiya-zaman-bb2a17353/",
+    },
+    {
+      platform: "email",
+      label: "Email",
+      href: "mailto:sumaiya.zaman2107@gmail.com",
+    },
   ],
   github: {
     username: "sumaiyaa110",
-    featuredRepos: [],
+    featuredRepos: [
+      "Hope-Speech-Detection",
+      "CUET_Synthetica-CC-MMD-2026",
+      "PCOS-Multiclass-Labeling",
+      "MentorMatrix",
+    ],
   },
   currently: [
-    { label: "Learning", value: "Deep learning fundamentals" },
-    { label: "Building", value: "This portfolio, in Next.js" },
-    { label: "Reading", value: "Designing Data-Intensive Applications" },
+    { label: "Studying", value: "Computer Science and Engineering at CUET" },
+    { label: "Researching", value: "Multimodal and multilingual NLP" },
+    { label: "Building", value: "LLM-powered web applications" },
   ],
   background: [
-    "I started programming in secondary school by writing small games, and chose Computer Science because I wanted to understand how the things I used every day actually worked.",
-    "At university I've been drawn to the places where theory meets practice: algorithms that make real systems faster, and models that learn from messy data.",
+    "I'm a Computer Science and Engineering undergraduate at Chittagong University of Engineering and Technology (CUET), with research experience in natural language processing, multimodal AI, computer vision and vision-language models.",
+    "My research has been published at ACL-affiliated workshops and international conferences. Along the way I've gained hands-on experience in deep learning, model fine-tuning, experimental analysis and AI system development.",
+    "On the software side I work with Python, web technologies, databases and REST APIs, and I care about building AI-powered applications that are reliable.",
   ],
   interests: [
-    "Machine learning and its applications",
-    "Building accessible web interfaces",
-    "Open-source software",
-    "Teaching and writing about what I learn",
+    "Computer vision and vision-language models",
+    "Multimodal AI and multimodal NLP",
+    "Multilingual NLP",
+    "Trustworthy AI",
+    "Misinformation and abusive-language detection",
+    "Healthcare AI",
+    "LLM-powered systems",
   ],
   goals: [
-    "Contribute to a research project and co-author a paper before graduating.",
-    "Complete an industry internship to see how software is built at scale.",
-    "Pursue graduate study in machine learning.",
+    "Contribute to impactful machine learning research.",
+    "Build reliable AI-powered applications.",
   ],
 };

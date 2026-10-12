@@ -17,9 +17,11 @@ export function ProjectCard({ project }: { project: Project }) {
         <ProjectScreenshot src={project.screenshots[0]} title={project.title} />
       </Link>
       <div className="flex flex-1 flex-col gap-3 p-2 pt-4">
-        <p className="font-mono text-xs text-muted-foreground">
-          {project.year}
-        </p>
+        {project.year && (
+          <p className="font-mono text-xs text-muted-foreground">
+            {project.year}
+          </p>
+        )}
         <h3 className="text-xl font-medium">
           <Link
             href={`/projects/${project.slug}`}

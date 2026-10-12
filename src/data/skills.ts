@@ -1,53 +1,68 @@
 import type { SkillCategory } from "@/types/content";
 
-// PLACEHOLDER CONTENT: list what you can actually use, and use `note`
-// to say how well ("coursework", "used in 3 projects", "learning").
+// Optional: add a `note` to any skill to say how well you know it,
+// e.g. { name: "Jenkins", note: "used in one project" }.
 export const skillCategories: SkillCategory[] = [
   {
     title: "Programming languages",
     skills: [
-      { name: "Python", note: "most comfortable" },
-      { name: "TypeScript", note: "web projects" },
-      { name: "C++", note: "coursework, problem solving" },
-      { name: "Java", note: "coursework" },
+      { name: "Python" },
+      { name: "C" },
+      { name: "C++" },
+      { name: "JavaScript" },
     ],
   },
   {
-    title: "Web technologies",
+    title: "Machine learning / AI",
     skills: [
-      { name: "React" },
+      { name: "PyTorch" },
+      { name: "Hugging Face Transformers" },
+      { name: "Scikit-learn" },
+      { name: "XGBoost" },
+      { name: "LightGBM" },
+      { name: "SHAP" },
+      { name: "Prompt engineering" },
+    ],
+  },
+  {
+    title: "NLP / Multimodal AI",
+    skills: [
+      { name: "Transformer fine-tuning" },
+      { name: "Vision-language models" },
+      { name: "CLIP" },
+      { name: "Multimodal classification" },
+      { name: "OCR text fusion" },
+      { name: "LLM APIs", note: "Gemini, Groq, OpenRouter" },
+    ],
+  },
+  {
+    title: "Web development",
+    skills: [
       { name: "Next.js" },
-      { name: "Tailwind CSS" },
+      { name: "React.js" },
       { name: "Node.js" },
-      { name: "REST APIs" },
-    ],
-  },
-  {
-    title: "AI / ML tools",
-    skills: [
-      { name: "PyTorch", note: "learning" },
-      { name: "scikit-learn" },
-      { name: "NumPy" },
-      { name: "pandas" },
-      { name: "Jupyter" },
+      { name: "Express.js" },
     ],
   },
   {
     title: "Databases",
+    skills: [{ name: "PostgreSQL" }, { name: "MySQL" }],
+  },
+  {
+    title: "APIs & testing",
     skills: [
-      { name: "PostgreSQL" },
-      { name: "MySQL", note: "coursework" },
-      { name: "MongoDB" },
+      { name: "REST APIs" },
+      { name: "Swagger (OpenAPI)" },
+      { name: "Postman" },
     ],
   },
   {
     title: "Developer tools",
     skills: [
       { name: "Git & GitHub" },
+      { name: "Jenkins" },
+      { name: "Linux CLI" },
       { name: "VS Code" },
-      { name: "Linux" },
-      { name: "Docker", note: "basics" },
-      { name: "Figma" },
     ],
   },
 ];

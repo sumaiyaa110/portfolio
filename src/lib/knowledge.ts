@@ -1,5 +1,11 @@
 import { education } from "@/data/education";
-import { achievements, courses, experience } from "@/data/experience";
+import {
+  achievements,
+  activities,
+  courses,
+  experience,
+  publications,
+} from "@/data/experience";
 import { journey } from "@/data/journey";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
@@ -89,6 +95,17 @@ export function getKnowledgeDocuments(): KnowledgeDocument[] {
       url: "/resume",
       text: resume.summary,
     },
+    {
+      id: "publications",
+      title: "Research publications",
+      url: "/experience#publications",
+      text: publications
+        .map(
+          (publication) =>
+            `${publication.title}. ${publication.venue} (${publication.year}).`,
+        )
+        .join("\n"),
+    },
     ...experience.map((item, index) => ({
       id: `experience-${index}`,
       title: `${item.role}, ${item.organization}`,
@@ -105,15 +122,15 @@ export function getKnowledgeDocuments(): KnowledgeDocument[] {
       url: "/experience",
       text: lines(
         ...courses.map(
-          (course) =>
-            `Course: ${course.title}, ${course.provider} (${course.year}).`,
+          (course) => `Course: ${course.title}, ${course.provider}.`,
         ),
         ...achievements.map((achievement) =>
           lines(
-            `Achievement: ${achievement.title} (${achievement.year}).`,
+            `Achievement: ${[achievement.title, achievement.issuer, achievement.year].filter(Boolean).join(", ")}.`,
             achievement.description,
           ),
         ),
+        ...activities.map((activity) => `Activity: ${activity}.`),
       ),
     },
     ...projects.map((project) => ({
@@ -121,10 +138,12 @@ export function getKnowledgeDocuments(): KnowledgeDocument[] {
       title: project.title,
       url: `/projects/${project.slug}`,
       text: lines(
-        `${project.title} (${project.year}). ${project.description}`,
-        `Problem: ${project.problem}`,
+        `${project.title}. ${project.description}`,
+        ...project.highlights,
+        project.problem && `Problem: ${project.problem}`,
         `Technologies: ${project.technologies.join(", ")}.`,
-        `Lessons learned: ${project.lessons.join(" ")}`,
+        project.lessons.length > 0 &&
+          `Lessons learned: ${project.lessons.join(" ")}`,
       ),
     })),
     ...getAllPosts().map((post) => ({

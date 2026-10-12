@@ -1,5 +1,5 @@
 import { education } from "./education";
-import { achievements, experience } from "./experience";
+import { achievements, experience, publications } from "./experience";
 import { profile } from "./profile";
 import { projects } from "./projects";
 import { skillCategories } from "./skills";
@@ -10,18 +10,22 @@ import { skillCategories } from "./skills";
  * which projects to list are specific to the resume.
  */
 export const resume = {
-  // PLACEHOLDER CONTENT: a two or three sentence summary for the top of your resume.
   summary:
-    "Computer Science undergraduate with experience building full-stack web applications and a growing interest in machine learning research. Looking for internship and research opportunities.",
+    "Computer Science and Engineering undergraduate at Chittagong University of Engineering and Technology (CUET) with research experience in Natural Language Processing, Multimodal AI, Computer Vision, and Vision-Language Models. Published research in ACL-affiliated workshops and international conferences, with hands-on experience in deep learning, model fine-tuning, experimental analysis, and AI system development. Skilled in Python, web technologies, databases, REST APIs, and software development practices.",
   contact: {
     email: profile.email,
     location: profile.location,
     links: profile.social.filter((link) => link.platform !== "email"),
   },
   education,
+  publications,
   experience,
   /** Slugs from `projects.ts` to list on the resume, in order. */
-  projects: ["study-planner", "handwritten-digit-classifier"]
+  projects: [
+    "virtual-thrift-store",
+    "codeshare-hub",
+    "mentor-mentee-scheduling-system",
+  ]
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter((project) => project !== undefined),
   skills: skillCategories,

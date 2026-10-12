@@ -1,23 +1,24 @@
 import type { Education } from "@/types/content";
 
-// PLACEHOLDER CONTENT: replace with your own education history, newest first.
+// Newest first.
 export const education: Education[] = [
   {
-    institution: "Your University",
-    degree: "B.Sc. in Computer Science and Engineering",
-    period: "2023 – Present",
-    location: "City, Country",
-    result: "CGPA 0.00 / 4.00",
-    highlights: [
-      "Relevant coursework: Data Structures, Algorithms, Databases, Operating Systems, Machine Learning",
-      "Member of the university programming club",
-    ],
+    institution: "Chittagong University of Engineering and Technology (CUET)",
+    degree: "BSc in Computer Science and Engineering",
+    period: "Jan 2023 – Present",
+    location: "Chittagong",
+    result: "CGPA through 6th semester: 3.69 / 4.00",
   },
   {
-    institution: "Your College",
-    degree: "Higher Secondary Certificate, Science",
-    period: "2020 – 2022",
-    location: "City, Country",
-    result: "GPA 0.00 / 5.00",
+    institution: "Jalalabad Cantonment Public School and College",
+    degree: "Higher Secondary Certificate (HSC)",
+    period: "2019 – 2021",
+    result: "GPA 5.00 / 5.00",
+  },
+  {
+    institution: "Jalalabad Cantonment Public School and College",
+    degree: "Secondary School Certificate (SSC)",
+    period: "2017 – 2019",
+    result: "GPA 5.00 / 5.00",
   },
 ];
