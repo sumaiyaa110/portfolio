@@ -9,11 +9,11 @@ interface TagProps {
   className?: string;
 }
 
-/** Small monospace label for technologies, blog tags and similar metadata. */
+/** Small pill for technologies, blog tags and similar metadata. */
 export function Tag({ children, href, className }: TagProps) {
   const classes = cn(
-    "inline-flex items-center rounded border bg-muted/60 px-1.5 py-0.5 font-mono text-xs text-muted-foreground",
-    href && "transition-colors hover:border-primary/50 hover:text-primary",
+    "inline-flex items-center rounded-full bg-accent px-2.5 py-0.5 text-xs font-medium text-accent-foreground",
+    href && "transition-colors hover:bg-primary hover:text-primary-foreground",
     className,
   );
 

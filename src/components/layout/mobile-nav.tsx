@@ -56,7 +56,7 @@ export function MobileNav() {
                   onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "flex items-baseline gap-4 border-b border-dashed border-rule py-3 font-serif text-lg",
+                    "flex items-baseline gap-4 border-b border-border py-3 font-heading text-lg font-medium",
                     active ? "text-primary" : "text-foreground",
                   )}
                 >

@@ -8,12 +8,18 @@ import { ThemeToggle } from "./theme-toggle";
 
 export function SiteHeader() {
   return (
-    <header className="no-print sticky top-0 z-40 border-b bg-background/85 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-5">
+    <header className="no-print sticky top-0 z-40 border-b bg-background/75 backdrop-blur-md">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-5">
         <Link
           href="/"
-          className="font-serif text-lg font-medium tracking-tight"
+          className="flex items-center gap-2.5 font-heading text-base font-semibold tracking-tight"
         >
+          <span
+            aria-hidden="true"
+            className="flex size-7 items-center justify-center rounded-lg bg-primary font-mono text-xs font-bold text-primary-foreground"
+          >
+            {profile.initials}
+          </span>
           {profile.name}
         </Link>
         <div className="flex items-center gap-1">

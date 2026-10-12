@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 interface PageHeaderProps {
-  /** Small monospace label above the title, e.g. "Projects". */
+  /** Small label above the title, e.g. "Projects". */
   eyebrow: string;
   title: string;
   description?: string;
@@ -16,11 +16,11 @@ export function PageHeader({
   className,
 }: PageHeaderProps) {
   return (
-    <header className={cn("max-w-2xl pt-14 pb-10 sm:pt-20", className)}>
-      <p className="font-mono text-xs uppercase tracking-widest text-primary">
+    <header className={cn("max-w-3xl pt-14 pb-10 sm:pt-20", className)}>
+      <p className="inline-flex rounded-full border border-primary/25 bg-primary/10 px-3 py-1 font-mono text-xs font-medium text-primary">
         {eyebrow}
       </p>
-      <h1 className="mt-3 text-4xl font-medium text-balance sm:text-5xl">
+      <h1 className="mt-4 text-4xl font-bold text-balance sm:text-5xl">
         {title}
       </h1>
       {description && (

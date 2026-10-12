@@ -1,5 +1,5 @@
 interface EntryProps {
-  /** Shown in the left margin, e.g. "2023 – Present". */
+  /** Shown beside the title, e.g. "2023 – Present". */
   period?: string;
   title: string;
   /** Organization, institution or provider. */
@@ -10,41 +10,47 @@ interface EntryProps {
 }
 
 /**
- * One dated row: the date sits in a left "margin" column and the detail on the
- * right. Used for education, experience, courses and achievements.
+ * One dated card. Used for education, publications, experience, courses and
+ * achievements.
  */
 export function Entry({ period, title, subtitle, meta, children }: EntryProps) {
   return (
-    <div className="grid gap-1 sm:grid-cols-[9.5rem_1fr] sm:gap-6">
-      <p className="font-mono text-xs text-muted-foreground sm:pt-1.5">
-        {period}
-      </p>
-      <div>
-        <h3 className="text-lg font-medium leading-snug">{title}</h3>
-        {(subtitle || meta) && (
-          <p className="mt-0.5 text-sm text-muted-foreground">
-            {[subtitle, meta].filter(Boolean).join(" · ")}
+    <div className="surface p-5 transition-colors hover:border-primary/30">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+        <div>
+          <h3 className="text-base font-semibold leading-snug sm:text-lg">
+            {title}
+          </h3>
+          {(subtitle || meta) && (
+            <p className="mt-1 text-sm text-muted-foreground">
+              {[subtitle, meta].filter(Boolean).join(" · ")}
+            </p>
+          )}
+        </div>
+        {period && (
+          <p className="order-first shrink-0 font-mono text-xs text-primary sm:order-none sm:pt-1">
+            {period}
           </p>
         )}
-        {children && (
-          <div className="mt-3 space-y-3 leading-7 text-foreground/90">
-            {children}
-          </div>
-        )}
       </div>
+      {children && (
+        <div className="mt-3 space-y-3 leading-7 text-foreground/90">
+          {children}
+        </div>
+      )}
     </div>
   );
 }
 
 export function EntryList({ children }: { children: React.ReactNode }) {
-  return <div className="space-y-8">{children}</div>;
+  return <div className="grid gap-3">{children}</div>;
 }
 
 /** Bulleted details inside an entry. */
 export function Highlights({ items }: { items?: string[] }) {
   if (!items?.length) return null;
   return (
-    <ul className="list-disc space-y-1.5 pl-5 text-[0.9375rem] marker:text-muted-foreground">
+    <ul className="list-disc space-y-1.5 pl-5 text-[0.9375rem] marker:text-primary">
       {items.map((item) => (
         <li key={item}>{item}</li>
       ))}

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Newsreader } from "next/font/google";
+import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -10,20 +10,16 @@ import { profile } from "@/data/profile";
 import "./globals.css";
 
 // Body text.
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const body = Geist({ subsets: ["latin"], variable: "--font-body" });
 
-// Headings and pull quotes.
-const newsreader = Newsreader({
+// Headings.
+const display = Space_Grotesk({
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-newsreader",
+  variable: "--font-display",
 });
 
 // Dates, tags and code.
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-});
+const code = Geist_Mono({ subsets: ["latin"], variable: "--font-code" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -45,8 +41,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbf9f5" },
-    { media: "(prefers-color-scheme: dark)", color: "#171615" },
+    { media: "(prefers-color-scheme: light)", color: "#f8fafa" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0f17" },
   ],
 };
 
@@ -57,9 +53,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
+      className={`${body.variable} ${display.variable} ${code.variable}`}
     >
-      <body className="flex min-h-dvh flex-col antialiased">
+      <body className="relative flex min-h-dvh flex-col antialiased">
         <ThemeProvider>
           <a
             href="#main"
@@ -67,8 +63,9 @@ export default function RootLayout({
           >
             Skip to content
           </a>
+          <div aria-hidden="true" className="backdrop no-print" />
           <SiteHeader />
-          <main id="main" className="mx-auto w-full max-w-5xl flex-1 px-5">
+          <main id="main" className="mx-auto w-full max-w-6xl flex-1 px-5">
             {children}
           </main>
           <SiteFooter />

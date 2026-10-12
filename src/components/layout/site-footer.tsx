@@ -7,9 +7,9 @@ import { profile } from "@/data/profile";
 export function SiteFooter() {
   return (
     <footer className="no-print mt-24 border-t">
-      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-start sm:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-start sm:justify-between">
         <div className="space-y-2">
-          <p className="font-serif text-lg">{profile.name}</p>
+          <p className="font-heading text-lg font-semibold">{profile.name}</p>
           <p className="text-sm text-muted-foreground">
             {profile.role} · {profile.university}
           </p>
@@ -30,7 +30,7 @@ export function SiteFooter() {
           ))}
         </nav>
       </div>
-      <div className="mx-auto max-w-5xl px-5 pb-8">
+      <div className="mx-auto max-w-6xl px-5 pb-8">
         <p className="font-mono text-xs text-muted-foreground">
           © {new Date().getFullYear()} {profile.name}. Built with Next.js.
         </p>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PostList } from "@/components/blog/post-list";
 import { GitHubSection } from "@/components/github/github-section";
 import { Intro } from "@/components/home/intro";
+import { Stats } from "@/components/home/stats";
 import { FadeIn } from "@/components/motion/fade-in";
 import { ProjectGrid } from "@/components/projects/project-card";
 import { Section } from "@/components/shared/section";
@@ -24,15 +25,20 @@ export default function HomePage() {
       />
 
       <Intro />
+      <Stats />
 
       <Section title="Currently">
-        <dl className="grid gap-6 sm:grid-cols-3">
+        <dl className="grid gap-3 sm:grid-cols-3">
           {profile.currently.map((item) => (
-            <div key={item.label}>
-              <dt className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <div key={item.label} className="surface p-5">
+              <dt className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary">
+                <span
+                  aria-hidden="true"
+                  className="size-1.5 rounded-full bg-primary"
+                />
                 {item.label}
               </dt>
-              <dd className="mt-1.5 font-serif text-lg leading-snug">
+              <dd className="mt-2 font-heading text-lg font-medium leading-snug">
                 {item.value}
               </dd>
             </div>

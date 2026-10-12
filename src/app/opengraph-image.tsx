@@ -18,8 +18,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 80,
-          background: "#fbf9f5",
-          color: "#2b2622",
+          background: "#0b0f17",
+          color: "#f1f5f4",
         }}
       >
         <div
@@ -28,7 +28,7 @@ export default function OpenGraphImage() {
             fontSize: 28,
             letterSpacing: 4,
             textTransform: "uppercase",
-            color: "#1f6b6f",
+            color: "#34d399",
           }}
         >
           {profile.role} · {profile.university}
@@ -42,7 +42,7 @@ export default function OpenGraphImage() {
               display: "flex",
               fontSize: 36,
               lineHeight: 1.4,
-              color: "#6b635c",
+              color: "#a3adb8",
               maxWidth: 960,
             }}
           >
@@ -53,7 +53,7 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             width: "100%",
-            borderTop: "3px dashed #cfc8bd",
+            borderTop: "6px solid #34d399",
           }}
         />
       </div>

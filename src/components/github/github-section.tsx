@@ -16,9 +16,9 @@ function RepoCard({ repo }: { repo: GitHubRepo }) {
       href={repo.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex h-full flex-col gap-2 rounded-lg border bg-card p-4 transition-colors hover:border-primary/50"
+      className="surface surface-hover group flex h-full flex-col gap-2 p-4"
     >
-      <span className="flex items-center justify-between gap-2 font-mono text-sm font-medium group-hover:text-primary">
+      <span className="flex items-center justify-between gap-2 font-mono text-sm font-semibold group-hover:text-primary">
         <span className="truncate">{repo.name}</span>
         <ArrowUpRightIcon className="size-4 shrink-0 text-muted-foreground group-hover:text-primary" />
       </span>
@@ -94,7 +94,7 @@ export async function GitHubSection() {
     if (process.env.NODE_ENV === "production") return null;
     return (
       <Section title="On GitHub">
-        <p className="rounded-lg border border-dashed border-rule p-4 text-sm text-muted-foreground">
+        <p className="surface p-4 text-sm text-muted-foreground">
           Add your GitHub username to{" "}
           <code className="font-mono text-xs">src/data/profile.ts</code> to show
           your repositories and recent activity here.
@@ -151,7 +151,7 @@ export async function GitHubSection() {
               <h3 className="mb-3 font-mono text-xs font-normal uppercase tracking-widest text-muted-foreground">
                 Recent activity
               </h3>
-              <ul className="divide-y divide-dashed divide-rule">
+              <ul className="divide-y divide-border">
                 {github.activity.map((item) => (
                   <li key={item.id} className="py-2.5 text-sm first:pt-0">
                     <span className="text-muted-foreground">{item.action} </span>

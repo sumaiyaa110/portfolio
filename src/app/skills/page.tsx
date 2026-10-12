@@ -4,7 +4,7 @@ import { skillCategories } from "@/data/skills";
 import { createMetadata } from "@/lib/seo";
 
 const description =
-  "The languages and tools I work with, and an honest note on how well I know each one.";
+  "The languages, frameworks and tools I use for research and software projects.";
 
 export const metadata = createMetadata({
   title: "Skills",
@@ -17,28 +17,26 @@ export default function SkillsPage() {
     <>
       <PageHeader eyebrow="Skills" title="Skills" description={description} />
 
-      <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {skillCategories.map((category, index) => (
-          <FadeIn key={category.title} delay={Math.min(index, 4) * 0.05}>
-            <section>
-              <h2 className="border-b border-dashed border-rule pb-3 text-2xl font-medium">
-                {category.title}
-              </h2>
+          <FadeIn key={category.title} delay={Math.min(index, 5) * 0.05}>
+            <section className="surface h-full p-5 sm:p-6">
+              <h2 className="text-lg font-bold">{category.title}</h2>
               {category.description && (
-                <p className="mt-3 text-sm text-muted-foreground">
+                <p className="mt-2 text-sm text-muted-foreground">
                   {category.description}
                 </p>
               )}
-              <ul className="divide-y">
+              <ul className="mt-4 flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <li
                     key={skill.name}
-                    className="flex items-baseline justify-between gap-4 py-2.5"
+                    className="rounded-lg border bg-background px-3 py-1.5 text-sm font-medium"
                   >
-                    <span>{skill.name}</span>
+                    {skill.name}
                     {skill.note && (
-                      <span className="text-right font-mono text-xs text-muted-foreground">
-                        {skill.note}
+                      <span className="ml-1.5 font-normal text-muted-foreground">
+                        ({skill.note})
                       </span>
                     )}
                   </li>

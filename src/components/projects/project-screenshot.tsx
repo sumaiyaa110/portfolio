@@ -3,7 +3,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface ProjectScreenshotProps {
-  /** Path under /public. When missing, a ruled placeholder is shown. */
+  /** Path under /public. When missing, a gradient placeholder is shown. */
   src?: string;
   title: string;
   className?: string;
@@ -19,7 +19,7 @@ export function ProjectScreenshot({
   return (
     <div
       className={cn(
-        "relative aspect-[16/10] overflow-hidden rounded-md border bg-muted",
+        "relative aspect-[16/10] overflow-hidden rounded-lg border bg-muted",
         className,
       )}
     >
@@ -35,10 +35,10 @@ export function ProjectScreenshot({
       ) : (
         <div
           aria-hidden="true"
-          className="flex size-full items-center justify-center bg-[repeating-linear-gradient(to_bottom,transparent_0,transparent_23px,var(--border)_23px,var(--border)_24px)]"
+          className="flex size-full items-center justify-center bg-linear-to-br from-primary/20 via-accent to-(--primary-2)/20 p-4"
         >
-          <span className="rounded bg-muted px-2 py-1 font-mono text-xs text-muted-foreground">
-            screenshot
+          <span className="text-center font-heading text-lg font-bold text-accent-foreground/70 text-balance">
+            {title}
           </span>
         </div>
       )}
