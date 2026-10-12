@@ -1,0 +1,40 @@
+---
+title: "Why I'm keeping a public notebook"
+description: "A first post: what this blog is for, and how I plan to use it while I study."
+date: 2025-09-01
+category: "Notes"
+tags: ["meta", "learning"]
+---
+
+This is a placeholder post. Replace it with your own writing, or delete the file.
+
+I learn things faster when I have to explain them. Writing a short note after a
+lecture or a project forces me to find the parts I only *thought* I understood.
+
+## What I'll write about
+
+- Course material that finally clicked
+- Project write-ups, including the parts that went wrong
+- Papers I'm reading, summarised in plain language
+
+> If you can't explain it simply, you don't understand it well enough.
+
+## How posts work
+
+Each post is an `.mdx` file in `content/blog`. The file name becomes the URL,
+and the block at the top of the file sets the title, date, category and tags.
+
+```ts
+// content/blog/my-post.mdx → /blog/my-post
+export function readingTime(text: string) {
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 220));
+}
+```
+
+Tables, task lists and footnotes are supported too:
+
+| Element | Supported |
+| ------- | --------- |
+| Tables  | Yes       |
+| Code    | Yes       |

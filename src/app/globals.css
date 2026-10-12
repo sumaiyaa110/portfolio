@@ -1,0 +1,187 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-newsreader);
+  --font-heading: var(--font-newsreader);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-rule: var(--rule);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/*
+ * Lab notebook palette.
+ * Light: warm paper with dark ink. Dark: soft charcoal with pale ink.
+ * --primary is the single accent (teal). Change it here to re-skin the site.
+ */
+:root {
+  --background: oklch(0.985 0.006 85);
+  --foreground: oklch(0.24 0.012 60);
+  --card: oklch(0.995 0.004 85);
+  --card-foreground: oklch(0.24 0.012 60);
+  --popover: oklch(0.995 0.004 85);
+  --popover-foreground: oklch(0.24 0.012 60);
+  --primary: oklch(0.45 0.075 195);
+  --primary-foreground: oklch(0.985 0.006 85);
+  --secondary: oklch(0.955 0.008 85);
+  --secondary-foreground: oklch(0.24 0.012 60);
+  --muted: oklch(0.955 0.008 85);
+  --muted-foreground: oklch(0.48 0.012 60);
+  --accent: oklch(0.955 0.008 85);
+  --accent-foreground: oklch(0.24 0.012 60);
+  --destructive: oklch(0.55 0.2 27);
+  --border: oklch(0.9 0.01 85);
+  --rule: oklch(0.84 0.012 85);
+  --input: oklch(0.88 0.01 85);
+  --ring: oklch(0.45 0.075 195);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: oklch(0.19 0.006 70);
+  --foreground: oklch(0.92 0.008 85);
+  --card: oklch(0.22 0.006 70);
+  --card-foreground: oklch(0.92 0.008 85);
+  --popover: oklch(0.22 0.006 70);
+  --popover-foreground: oklch(0.92 0.008 85);
+  --primary: oklch(0.78 0.085 190);
+  --primary-foreground: oklch(0.19 0.006 70);
+  --secondary: oklch(0.26 0.006 70);
+  --secondary-foreground: oklch(0.92 0.008 85);
+  --muted: oklch(0.26 0.006 70);
+  --muted-foreground: oklch(0.72 0.01 85);
+  --accent: oklch(0.26 0.006 70);
+  --accent-foreground: oklch(0.92 0.008 85);
+  --destructive: oklch(0.7 0.19 22);
+  --border: oklch(1 0 0 / 10%);
+  --rule: oklch(1 0 0 / 18%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.78 0.085 190);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-heading tracking-tight;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 25%, transparent);
+  }
+}
+
+@layer components {
+  /* Inline text link: underlined in the accent colour. */
+  .link {
+    @apply text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:decoration-primary;
+  }
+
+  /* Long-form article styles, used for MDX blog posts. */
+  .prose-notebook {
+    @apply text-[1.0625rem] leading-8 text-foreground/90;
+  }
+  .prose-notebook > * + * {
+    @apply mt-6;
+  }
+  .prose-notebook h2 {
+    @apply mt-12 scroll-mt-24 text-2xl font-medium text-foreground;
+  }
+  .prose-notebook h3 {
+    @apply mt-10 scroll-mt-24 text-xl font-medium text-foreground;
+  }
+  .prose-notebook a {
+    @apply text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary;
+  }
+  .prose-notebook ul {
+    @apply list-disc space-y-2 pl-6 marker:text-muted-foreground;
+  }
+  .prose-notebook ol {
+    @apply list-decimal space-y-2 pl-6 marker:font-mono marker:text-sm marker:text-muted-foreground;
+  }
+  .prose-notebook blockquote {
+    @apply border-l-2 border-primary/50 pl-5 font-serif text-lg italic text-muted-foreground;
+  }
+  .prose-notebook hr {
+    @apply my-10 border-dashed border-rule;
+  }
+  .prose-notebook img {
+    @apply rounded-lg border;
+  }
+  .prose-notebook :not(pre) > code {
+    @apply rounded bg-muted px-1.5 py-0.5 font-mono text-[0.875em];
+  }
+  .prose-notebook pre {
+    @apply overflow-x-auto rounded-lg border bg-card py-4 font-mono text-sm leading-6;
+  }
+  .prose-notebook pre > code {
+    @apply grid min-w-full;
+  }
+  .prose-notebook pre [data-line] {
+    @apply px-4;
+  }
+  .prose-notebook table {
+    @apply block w-full overflow-x-auto text-left text-sm;
+  }
+  .prose-notebook th {
+    @apply border-b border-rule px-3 py-2 font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground;
+  }
+  .prose-notebook td {
+    @apply border-b px-3 py-2;
+  }
+
+  /* Syntax highlighting: rehype-pretty-code emits both themes as variables. */
+  .prose-notebook pre span {
+    color: var(--shiki-light);
+  }
+  .dark .prose-notebook pre span {
+    color: var(--shiki-dark);
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}
