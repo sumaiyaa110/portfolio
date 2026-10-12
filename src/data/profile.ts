@@ -2,8 +2,8 @@ import type { Profile } from "@/types/content";
 
 // PLACEHOLDER CONTENT: replace everything in this file with your own details.
 export const profile: Profile = {
-  name: "Your Name",
-  initials: "YN",
+  name: "Sumaiya Zaman",
+  initials: "SZ",
   role: "Computer Science undergraduate",
   university: "Your University",
   location: "City, Country",
@@ -19,7 +19,7 @@ export const profile: Profile = {
   resumePdf: "/resume.pdf",
   social: [
     { platform: "github", label: "GitHub", href: "https://github.com/sumaiyaa110" },
-    { platform: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/" },
+    { platform: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/sumaiya-zaman-bb2a17353/" },
     { platform: "email", label: "Email", href: "mailto:you@example.com" },
   ],
   github: {

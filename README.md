@@ -103,7 +103,7 @@ computer. On Vercel, add the same names in the project settings instead.
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Your deployed URL, for SEO links and the sitemap |
+| `NEXT_PUBLIC_SITE_URL` | Only for a custom domain. On Vercel the site URL is detected automatically |
 | `RESEND_API_KEY` | Lets the contact form send email through [Resend](https://resend.com) |
 | `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` | Where contact mail goes and who it is from |
 | `GITHUB_TOKEN` | Enables the GitHub contribution calendar |
@@ -148,12 +148,13 @@ build script and add an API route, without touching the existing pages.
    Vercel detects Next.js automatically, so leave the build settings as they are.
 4. Click **Deploy**. After a minute or two you get a URL such as
    `https://your-project.vercel.app`.
-5. In the Vercel project, open **Settings > Environment Variables**, set
-   `NEXT_PUBLIC_SITE_URL` to that URL, and add any other variables you want.
-   Then open **Deployments** and redeploy so the new values take effect.
+The site detects its own Vercel address automatically, so no environment
+variables are required. Add the optional ones under **Settings > Environment
+Variables** when you want the contact form or contribution calendar, then
+redeploy from the **Deployments** tab.
 
 After this, every push to the `main` branch deploys automatically, and pull
 requests get their own preview URL.
 
 To use your own domain, add it under **Settings > Domains** in Vercel and
-update `NEXT_PUBLIC_SITE_URL` to match.
+set `NEXT_PUBLIC_SITE_URL` to it.
