@@ -1,0 +1,50 @@
+---
+title: "Big-O, explained the way I wish I'd heard it"
+description: "A short, practical look at time complexity using two ways to find a duplicate in a list."
+date: 2025-10-12
+category: "Computer Science"
+tags: ["algorithms", "python", "learning"]
+---
+
+This is a placeholder post. Replace it with your own writing, or delete the file.
+
+Big-O notation describes how the work a program does grows as its input grows.
+It took me a while to see that it is about the *shape* of that growth, not the
+exact number of steps.
+
+## Two ways to find a duplicate
+
+The first approach compares every pair of items:
+
+```python
+def has_duplicate(items):
+    for i in range(len(items)):
+        for j in range(i + 1, len(items)):
+            if items[i] == items[j]:
+                return True
+    return False
+```
+
+With 1,000 items that is about 500,000 comparisons. This is **O(n²)**: double
+the input and the work roughly quadruples.
+
+The second approach remembers what it has already seen:
+
+```python
+def has_duplicate(items):
+    seen = set()
+    for item in items:
+        if item in seen:
+            return True
+        seen.add(item)
+    return False
+```
+
+Now 1,000 items need at most 1,000 lookups. This is **O(n)**, at the cost of
+extra memory for the set.
+
+## What I took away
+
+1. Nested loops over the same data are a hint to stop and think.
+2. Faster usually means trading memory for time.
+3. For small inputs none of this matters, so measure before optimising.
