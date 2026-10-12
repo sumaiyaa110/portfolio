@@ -12,7 +12,7 @@ import { createMetadata } from "@/lib/seo";
 import type { Experience, Publication } from "@/types/content";
 
 const description =
-  "Research publications, shared-task results, awards, training and activities from my time as an undergraduate.";
+  "Research publications, shared-task results, awards, certificates and activities from my time as an undergraduate.";
 
 export const metadata = createMetadata({
   title: "Experience",
@@ -147,7 +147,7 @@ export default function ExperiencePage() {
       )}
 
       {courses.length > 0 && (
-        <Section title="Courses & training" id="courses">
+        <Section title="Certificates & training" id="certificates">
           <EntryList>
             {courses.map((course) => (
               <Entry
@@ -156,6 +156,7 @@ export default function ExperiencePage() {
                 title={course.title}
                 subtitle={course.provider}
               >
+                {course.description && <p>{course.description}</p>}
                 {course.link && (
                   <a
                     href={course.link}

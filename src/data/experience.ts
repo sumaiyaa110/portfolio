@@ -110,11 +110,64 @@ export const achievements: Achievement[] = [
   },
 ];
 
+// Certificates, newest first.
 export const courses: Course[] = [
-  { title: "Intro to Machine Learning", provider: "Kaggle Learn" },
-  { title: "Python", provider: "Kaggle Learn" },
-  { title: "Prompt Engineering", provider: "DataCamp" },
-  { title: "Introduction to Python", provider: "DataCamp" },
+  {
+    title: "Supervised Machine Learning: Regression and Classification",
+    provider: "DeepLearning.AI",
+    year: "Jul 2026",
+    link: "https://www.coursera.org/account/accomplishments/records/ZFMKYD8NNK9J",
+  },
+  {
+    title: "Paper Presentation Certificate, RAEEUCCI-2026",
+    provider: "SRM Institute of Science and Technology (SRMIST)",
+    year: "Apr 2026",
+    description:
+      "Presented our polycystic ovary syndrome paper at RAEEUCCI-2026, held 22–24 April 2026.",
+  },
+  {
+    title: "IEEE Computer Society Membership Certificate",
+    provider: "IEEE",
+    year: "Jan 2026",
+  },
+  {
+    title: "IEEE Membership Certificate",
+    provider: "IEEE",
+    year: "Jan 2026",
+  },
+  {
+    title: "Sheba Solvio AI Hackathon",
+    provider: "Sheba Platform Ltd.",
+    year: "Dec 2025",
+    description: "Certificate for reaching the Top 20 and advancing to the finals.",
+  },
+  {
+    title: "Datathon Participant, CUET CSE Fest 2025",
+    provider: "Delineate",
+    year: "Dec 2025",
+  },
+  {
+    title: "Intro to Python",
+    provider: "DataCamp",
+    year: "Oct 2025",
+  },
+  {
+    title: "Understanding Prompt Engineering",
+    provider: "DataCamp",
+    year: "Oct 2025",
+  },
+  {
+    title: "Intro to Machine Learning",
+    provider: "Kaggle",
+    year: "Apr 2025",
+    link: "https://www.kaggle.com/learn/certification/sumaiyazaman110/intro-to-machine-learning",
+  },
+  {
+    title: "Python",
+    provider: "Kaggle",
+    year: "Apr 2025",
+    link: "https://www.kaggle.com/learn/certification/sumaiyazaman110/python",
+  },
   { title: "Master Git and GitHub", provider: "Udemy" },
 ];
 

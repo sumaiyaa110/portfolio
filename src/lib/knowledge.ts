@@ -122,7 +122,7 @@ export function getKnowledgeDocuments(): KnowledgeDocument[] {
       url: "/experience",
       text: lines(
         ...courses.map(
-          (course) => `Course: ${course.title}, ${course.provider}.`,
+          (course) => `Certificate: ${course.title}, ${course.provider}.`,
         ),
         ...achievements.map((achievement) =>
           lines(
