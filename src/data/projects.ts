@@ -18,7 +18,10 @@ export const projects: Project[] = [
       "Integrated Gemini, Groq and OpenRouter APIs for LLM-based product recommendations.",
     ],
     technologies: ["Next.js", "Node.js", "PostgreSQL", "Swagger", "Jenkins"],
-    screenshots: [],
+    screenshots: [
+      "/images/projects/thrift-store-home.jpg",
+      "/images/projects/thrift-store-products.jpg",
+    ],
     github: "https://github.com/sumaiyaa110/Fresh-Finds-University",
     lessons: [],
     featured: true,
@@ -64,11 +67,18 @@ export const projects: Project[] = [
   },
   {
     slug: "online-cafe-management-system",
-    title: "Online Cafe Management System",
-    description: "A web application for managing an online cafe.",
-    highlights: [],
-    technologies: ["Web application"],
-    screenshots: [],
+    title: "Smart Campus CUET Virtual Café",
+    description:
+      "A food ordering system for CUET students: browse menus, place orders and track their status, while vendors manage items and orders.",
+    highlights: [
+      "Students can search the menu, filter food by vendor, place orders and follow order status from a personal dashboard.",
+      "Vendors can add, update and delete menu items, manage incoming orders and monitor stock.",
+    ],
+    technologies: ["HTML", "JavaScript"],
+    screenshots: [
+      "/images/projects/virtual-cafe-home.jpg",
+      "/images/projects/virtual-cafe-menu.jpg",
+    ],
     github: "https://github.com/sumaiyaa110/cuet-virtual-cafe",
     lessons: [],
   },
