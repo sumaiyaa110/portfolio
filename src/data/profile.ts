@@ -18,8 +18,7 @@ export const profile: Profile = {
     "Computer vision",
     "Vision-language models",
   ],
-  // Add a photo at public/images/profile.jpg, then set this to "/images/profile.jpg".
-  photo: null,
+  photo: "/images/profile.jpg",
   email: "sumaiya.zaman2107@gmail.com",
   resumePdf: "/resume.pdf",
   social: [
