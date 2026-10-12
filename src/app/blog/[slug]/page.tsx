@@ -68,9 +68,9 @@ export default async function PostPage({ params }: PostPageProps) {
         All notes
       </Link>
 
-      <header className="mt-8 mb-10 space-y-4 border-b border-dashed border-rule pb-8">
+      <header className="mt-8 mb-10 space-y-4 border-b border-border pb-8">
         <PostMetaLine post={post} />
-        <h1 className="text-4xl font-medium text-balance sm:text-[2.75rem] sm:leading-[1.1]">
+        <h1 className="text-4xl font-semibold text-balance sm:text-[2.75rem] sm:leading-[1.1]">
           {post.title}
         </h1>
         <p className="text-lg leading-8 text-muted-foreground text-pretty">
@@ -81,7 +81,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <MdxContent source={post.content} />
 
       {post.tags.length > 0 && (
-        <footer className="mt-12 flex flex-wrap items-center gap-2 border-t border-dashed border-rule pt-6">
+        <footer className="mt-12 flex flex-wrap items-center gap-2 border-t border-border pt-6">
           <span className="font-mono text-xs text-muted-foreground">
             Filed under
           </span>

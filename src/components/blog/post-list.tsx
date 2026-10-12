@@ -28,13 +28,13 @@ export function PostList({ posts }: { posts: PostMeta[] }) {
   }
 
   return (
-    <ul className="max-w-2xl divide-y divide-dashed divide-rule">
+    <ul className="grid max-w-3xl gap-4">
       {posts.map((post, index) => (
-        <li key={post.slug} className="py-6 first:pt-0">
+        <li key={post.slug} className="surface surface-hover p-5 sm:p-6">
           <FadeIn delay={Math.min(index, 4) * 0.05}>
             <article className="space-y-2">
               <PostMetaLine post={post} />
-              <h2 className="text-2xl font-medium">
+              <h2 className="text-xl font-semibold sm:text-2xl">
                 <Link
                   href={`/blog/${post.slug}`}
                   className="transition-colors hover:text-primary"

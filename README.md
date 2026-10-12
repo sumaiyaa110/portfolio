@@ -4,8 +4,8 @@ A personal portfolio website for an undergraduate student. It presents
 education, a learning journey, projects, skills, experience, a blog, a resume
 and a contact form, plus a section showing GitHub repositories and activity.
 
-The design direction is a "lab notebook": a narrow reading column, serif
-headings, monospace metadata and one accent colour, in light and dark mode.
+The design is a clean, modern developer look: sans-serif type, card layouts and
+one emerald accent colour, in light and dark mode.
 
 ## Tech stack
 

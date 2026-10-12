@@ -23,10 +23,10 @@ export function MainNav() {
             href={item.href}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "rounded-md px-2.5 py-1.5 text-sm transition-colors",
+              "rounded-full px-3 py-1.5 text-sm transition-colors",
               active
-                ? "text-foreground underline decoration-primary decoration-2 underline-offset-8"
-                : "text-muted-foreground hover:text-foreground",
+                ? "bg-accent font-medium text-accent-foreground"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground",
             )}
           >
             {item.label}

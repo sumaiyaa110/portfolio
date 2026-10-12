@@ -8,7 +8,7 @@ import { ProjectScreenshot } from "./project-screenshot";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group flex h-full flex-col rounded-lg border bg-card p-3 transition duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-sm motion-reduce:transform-none">
+    <article className="surface surface-hover group flex h-full flex-col p-3">
       <Link
         href={`/projects/${project.slug}`}
         tabIndex={-1}
@@ -22,7 +22,7 @@ export function ProjectCard({ project }: { project: Project }) {
             {project.year}
           </p>
         )}
-        <h3 className="text-xl font-medium">
+        <h3 className="text-xl font-semibold">
           <Link
             href={`/projects/${project.slug}`}
             className="transition-colors group-hover:text-primary"

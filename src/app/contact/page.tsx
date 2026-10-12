@@ -26,7 +26,7 @@ export default function ContactPage() {
             </h2>
             <a
               href={`mailto:${profile.email}`}
-              className="link mt-2 inline-block font-serif text-xl"
+              className="link mt-2 inline-block font-heading text-lg font-medium break-all"
             >
               {profile.email}
             </a>
@@ -45,7 +45,9 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <ContactForm />
+        <div className="surface p-5 sm:p-7">
+          <ContactForm />
+        </div>
       </div>
     </>
   );

@@ -7,14 +7,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-newsreader);
-  --font-heading: var(--font-newsreader);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --font-mono: var(--font-code);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
-  --color-rule: var(--rule);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
@@ -38,53 +36,52 @@
 }
 
 /*
- * Lab notebook palette.
- * Light: warm paper with dark ink. Dark: soft charcoal with pale ink.
- * --primary is the single accent (teal). Change it here to re-skin the site.
+ * Colour palette. Cool neutrals with one emerald accent.
+ * --primary is the accent; change it here to re-skin the whole site.
  */
 :root {
-  --background: oklch(0.985 0.006 85);
-  --foreground: oklch(0.24 0.012 60);
-  --card: oklch(0.995 0.004 85);
-  --card-foreground: oklch(0.24 0.012 60);
-  --popover: oklch(0.995 0.004 85);
-  --popover-foreground: oklch(0.24 0.012 60);
-  --primary: oklch(0.45 0.075 195);
-  --primary-foreground: oklch(0.985 0.006 85);
-  --secondary: oklch(0.955 0.008 85);
-  --secondary-foreground: oklch(0.24 0.012 60);
-  --muted: oklch(0.955 0.008 85);
-  --muted-foreground: oklch(0.48 0.012 60);
-  --accent: oklch(0.955 0.008 85);
-  --accent-foreground: oklch(0.24 0.012 60);
+  --background: oklch(0.985 0.003 200);
+  --foreground: oklch(0.2 0.02 255);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 255);
+  --primary: oklch(0.52 0.125 163);
+  --primary-2: oklch(0.55 0.11 205);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.006 220);
+  --secondary-foreground: oklch(0.2 0.02 255);
+  --muted: oklch(0.96 0.006 220);
+  --muted-foreground: oklch(0.47 0.02 255);
+  --accent: oklch(0.95 0.035 165);
+  --accent-foreground: oklch(0.32 0.08 165);
   --destructive: oklch(0.55 0.2 27);
-  --border: oklch(0.9 0.01 85);
-  --rule: oklch(0.84 0.012 85);
-  --input: oklch(0.88 0.01 85);
-  --ring: oklch(0.45 0.075 195);
-  --radius: 0.5rem;
+  --border: oklch(0.915 0.008 230);
+  --input: oklch(0.89 0.01 230);
+  --ring: oklch(0.52 0.125 163);
+  --radius: 0.75rem;
 }
 
 .dark {
-  --background: oklch(0.19 0.006 70);
-  --foreground: oklch(0.92 0.008 85);
-  --card: oklch(0.22 0.006 70);
-  --card-foreground: oklch(0.92 0.008 85);
-  --popover: oklch(0.22 0.006 70);
-  --popover-foreground: oklch(0.92 0.008 85);
-  --primary: oklch(0.78 0.085 190);
-  --primary-foreground: oklch(0.19 0.006 70);
-  --secondary: oklch(0.26 0.006 70);
-  --secondary-foreground: oklch(0.92 0.008 85);
-  --muted: oklch(0.26 0.006 70);
-  --muted-foreground: oklch(0.72 0.01 85);
-  --accent: oklch(0.26 0.006 70);
-  --accent-foreground: oklch(0.92 0.008 85);
+  --background: oklch(0.16 0.012 250);
+  --foreground: oklch(0.95 0.005 220);
+  --card: oklch(0.2 0.014 250);
+  --card-foreground: oklch(0.95 0.005 220);
+  --popover: oklch(0.2 0.014 250);
+  --popover-foreground: oklch(0.95 0.005 220);
+  --primary: oklch(0.77 0.16 163);
+  --primary-2: oklch(0.8 0.12 200);
+  --primary-foreground: oklch(0.17 0.03 165);
+  --secondary: oklch(0.25 0.014 250);
+  --secondary-foreground: oklch(0.95 0.005 220);
+  --muted: oklch(0.25 0.014 250);
+  --muted-foreground: oklch(0.72 0.015 240);
+  --accent: oklch(0.28 0.045 170);
+  --accent-foreground: oklch(0.9 0.07 165);
   --destructive: oklch(0.7 0.19 22);
-  --border: oklch(1 0 0 / 10%);
-  --rule: oklch(1 0 0 / 18%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.78 0.085 190);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.77 0.16 163);
 }
 
 @layer base {
@@ -96,7 +93,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "cv11", "ss01";
   }
   h1,
   h2,
@@ -114,6 +110,40 @@
     @apply text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:decoration-primary;
   }
 
+  /* Accent gradient for a few words of large text. */
+  .text-gradient {
+    background-image: linear-gradient(100deg, var(--primary), var(--primary-2));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Standard card surface, with a lift on hover when it is interactive. */
+  .surface {
+    @apply rounded-xl border bg-card shadow-xs;
+  }
+  .surface-hover {
+    @apply transition duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md motion-reduce:transform-none;
+  }
+
+  /* Page backdrop: a faint grid that fades out, with a soft accent glow. */
+  .backdrop {
+    @apply pointer-events-none absolute inset-x-0 top-0 -z-10 h-[38rem] overflow-hidden;
+    background-image:
+      radial-gradient(
+        60rem 24rem at 70% -8rem,
+        color-mix(in oklch, var(--primary) 16%, transparent),
+        transparent
+      ),
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size:
+      auto,
+      3rem 3rem,
+      3rem 3rem;
+    mask-image: linear-gradient(to bottom, black, transparent);
+  }
+
   /* Long-form article styles, used for MDX blog posts. */
   .prose-notebook {
     @apply text-[1.0625rem] leading-8 text-foreground/90;
@@ -122,10 +152,10 @@
     @apply mt-6;
   }
   .prose-notebook h2 {
-    @apply mt-12 scroll-mt-24 text-2xl font-medium text-foreground;
+    @apply mt-12 scroll-mt-24 text-2xl font-semibold text-foreground;
   }
   .prose-notebook h3 {
-    @apply mt-10 scroll-mt-24 text-xl font-medium text-foreground;
+    @apply mt-10 scroll-mt-24 text-xl font-semibold text-foreground;
   }
   .prose-notebook a {
     @apply text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary;
@@ -137,10 +167,10 @@
     @apply list-decimal space-y-2 pl-6 marker:font-mono marker:text-sm marker:text-muted-foreground;
   }
   .prose-notebook blockquote {
-    @apply border-l-2 border-primary/50 pl-5 font-serif text-lg italic text-muted-foreground;
+    @apply border-l-2 border-primary/50 pl-5 text-lg italic text-muted-foreground;
   }
   .prose-notebook hr {
-    @apply my-10 border-dashed border-rule;
+    @apply my-10 border-border;
   }
   .prose-notebook img {
     @apply rounded-lg border;
@@ -149,7 +179,7 @@
     @apply rounded bg-muted px-1.5 py-0.5 font-mono text-[0.875em];
   }
   .prose-notebook pre {
-    @apply overflow-x-auto rounded-lg border bg-card py-4 font-mono text-sm leading-6;
+    @apply overflow-x-auto rounded-xl border bg-card py-4 font-mono text-sm leading-6;
   }
   .prose-notebook pre > code {
     @apply grid min-w-full;
@@ -161,7 +191,7 @@
     @apply block w-full overflow-x-auto text-left text-sm;
   }
   .prose-notebook th {
-    @apply border-b border-rule px-3 py-2 font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground;
+    @apply border-b border-border px-3 py-2 font-mono text-xs font-medium uppercase tracking-wider text-muted-foreground;
   }
   .prose-notebook td {
     @apply border-b px-3 py-2;

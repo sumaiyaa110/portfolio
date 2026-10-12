@@ -24,7 +24,7 @@ function ResumeSection({
 }) {
   return (
     <section className="break-inside-avoid-page">
-      <h2 className="mb-4 border-b border-rule pb-1.5 font-mono text-xs font-medium uppercase tracking-widest text-primary">
+      <h2 className="mb-4 border-b border-border pb-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-primary">
         {title}
       </h2>
       <div className="space-y-5">{children}</div>
@@ -101,7 +101,7 @@ export default function ResumePage() {
 
       <article className="space-y-8 rounded-lg border bg-card p-6 sm:p-10 print:rounded-none print:border-0 print:bg-transparent print:p-0">
         <header className="space-y-2">
-          <h1 className="text-4xl font-medium">{profile.name}</h1>
+          <h1 className="text-4xl font-semibold">{profile.name}</h1>
           <p className="text-muted-foreground">
             {profile.role} · {profile.university}
           </p>
@@ -149,7 +149,7 @@ export default function ResumePage() {
             <ul className="list-disc space-y-2 pl-5 text-[0.9375rem] leading-6 marker:text-muted-foreground">
               {resume.publications.map((publication) => (
                 <li key={publication.title}>
-                  <span className="font-medium">{publication.title}.</span>{" "}
+                  <span className="font-semibold">{publication.title}.</span>{" "}
                   <span className="text-muted-foreground">
                     {publication.venue}
                     {publication.doi && `. DOI: ${publication.doi}`}
