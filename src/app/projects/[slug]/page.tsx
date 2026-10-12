@@ -17,6 +17,16 @@ interface ProjectPageProps {
 
 export const dynamicParams = false;
 
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="list-disc space-y-3 pl-5 text-[1.0625rem] leading-8 text-foreground/90 marker:text-muted-foreground">
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
@@ -57,7 +67,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </Link>
 
       <PageHeader
-        eyebrow={`Project · ${project.year}`}
+        eyebrow={project.year ? `Project · ${project.year}` : "Project"}
         title={project.title}
         description={project.description}
         className="pt-6 pb-8 sm:pt-8"
@@ -78,23 +88,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </div>
 
       <div className="max-w-2xl">
-        <Section title="The problem">
-          <p className="text-[1.0625rem] leading-8 text-foreground/90">
-            {project.problem}
-          </p>
-        </Section>
+        {project.problem && (
+          <Section title="The problem">
+            <p className="text-[1.0625rem] leading-8 text-foreground/90">
+              {project.problem}
+            </p>
+          </Section>
+        )}
+
+        {project.highlights.length > 0 && (
+          <Section title="What I built">
+            <BulletList items={project.highlights} />
+          </Section>
+        )}
 
         <Section title="Built with">
           <TagList tags={project.technologies} />
         </Section>
 
-        <Section title="What I learned">
-          <ul className="list-disc space-y-3 pl-5 text-[1.0625rem] leading-8 text-foreground/90 marker:text-muted-foreground">
-            {project.lessons.map((lesson) => (
-              <li key={lesson}>{lesson}</li>
-            ))}
-          </ul>
-        </Section>
+        {project.lessons.length > 0 && (
+          <Section title="What I learned">
+            <BulletList items={project.lessons} />
+          </Section>
+        )}
       </div>
     </article>
   );

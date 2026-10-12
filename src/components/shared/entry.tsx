@@ -1,6 +1,6 @@
 interface EntryProps {
   /** Shown in the left margin, e.g. "2023 – Present". */
-  period: string;
+  period?: string;
   title: string;
   /** Organization, institution or provider. */
   subtitle?: string;

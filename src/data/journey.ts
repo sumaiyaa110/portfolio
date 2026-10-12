@@ -1,40 +1,37 @@
 import type { JourneyEntry } from "@/types/content";
 
-// PLACEHOLDER CONTENT: your learning journey, oldest first.
-// Be honest about what was hard; that is what makes this section worth reading.
+// Oldest first. These entries are drafted from the facts in your CV.
+// Add your own story: what was hard, what changed your mind, what you'd do differently.
 export const journey: JourneyEntry[] = [
   {
-    period: "2021",
-    title: "First lines of code",
+    period: "2017 – 2021",
+    title: "School and college",
     description:
-      "Started with Python tutorials and built a text-based adventure game. Most of it was copied and broken, but it ran.",
-    learned: ["Python basics", "Reading error messages"],
+      "Completed SSC and HSC at Jalalabad Cantonment Public School and College with GPA 5.00 in both, and received the Talentpool Grade board scholarship in both examinations.",
   },
   {
-    period: "2023",
-    title: "Starting university",
+    period: "Jan 2023",
+    title: "Starting Computer Science and Engineering at CUET",
     description:
-      "Moved from following tutorials to solving problems on my own. Data structures changed how I think about writing programs.",
-    learned: ["C and C++", "Data structures", "Git"],
+      "Began my BSc at Chittagong University of Engineering and Technology. I'm a member of the CUET Computer Club, the IEEE CUET Student Branch and its CS Chapter.",
+    learned: ["C", "C++", "Python", "JavaScript"],
   },
   {
-    period: "2024",
-    title: "Building for the web",
+    period: "Along the way",
+    title: "Building software",
     description:
-      "Built my first full-stack project for a course and learned how many small decisions sit between an idea and a working app.",
-    learned: ["JavaScript and TypeScript", "React", "SQL", "REST APIs"],
+      "Built full-stack web applications including a thrift marketplace, a code-snippet sharing platform and a mentor–mentee scheduling system, and took part in hackathons and datathons.",
+    learned: ["Next.js", "Node.js", "PostgreSQL", "REST APIs", "Git"],
   },
   {
-    period: "2025",
-    title: "Finding a research interest",
+    period: "2026",
+    title: "First publications",
     description:
-      "Took my first machine learning course and started reading papers. I'm still slow at it, but I've learned to reproduce small results before trusting my understanding.",
-    learned: ["PyTorch", "Linear algebra in practice", "Reading papers"],
-  },
-  {
-    period: "Now",
-    title: "Going deeper",
-    description:
-      "Focusing on fewer things and finishing them: one research direction, one substantial project, and writing about both.",
+      "Published three papers at ACL 2026 workshops with team CUET_SYNTHETICA, alongside conference papers on healthcare AI. Our hope speech detection system for code-mixed Tulu placed 1st in both tasks at DravidianLangTech.",
+    learned: [
+      "Transformer fine-tuning",
+      "Vision-language models",
+      "Explainable AI",
+    ],
   },
 ];

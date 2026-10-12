@@ -1,59 +1,74 @@
 import type { Project } from "@/types/content";
 
-// PLACEHOLDER CONTENT: replace with your own projects.
-// Add screenshots to /public/images/projects and list their paths in
-// `screenshots`; until then a placeholder panel is shown.
+// To complete a project, add:
+//   github / demo  links to the repository and a live version
+//   screenshots    image paths under /public/images/projects
+//   problem        why you built it
+//   lessons        what you learned
+// Sections with nothing in them are hidden on the site.
 export const projects: Project[] = [
   {
-    slug: "study-planner",
-    title: "Study Planner",
+    slug: "virtual-thrift-store",
+    title: "Virtual Thrift Store",
     description:
-      "A web app that turns a course syllabus into a week-by-week study schedule with reminders.",
-    problem:
-      "I kept losing track of deadlines across five courses, each with its own portal and format. I wanted a single view of what was due and how much time each task needed.",
-    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
-    screenshots: [],
-    github: "https://github.com/",
-    demo: "https://example.com",
-    lessons: [
-      "Modelling recurring events is harder than it looks; I rewrote the schema twice.",
-      "Shipping a small version early and using it myself found more bugs than any testing I planned.",
+      "A thrift marketplace with product browsing, backend workflows and LLM-based product recommendations.",
+    highlights: [
+      "Developed a thrift marketplace with product browsing, backend workflows and buyer-facing features.",
+      "Designed and documented 39 REST API routes using Swagger.",
+      "Integrated Gemini, Groq and OpenRouter APIs for LLM-based product recommendations.",
     ],
-    year: "2025",
+    technologies: ["Next.js", "Node.js", "PostgreSQL", "Swagger", "Jenkins"],
+    screenshots: [],
+    lessons: [],
     featured: true,
   },
   {
-    slug: "handwritten-digit-classifier",
-    title: "Handwritten Digit Classifier",
+    slug: "codeshare-hub",
+    title: "CodeShare Hub",
     description:
-      "A convolutional network trained on MNIST, with a browser canvas for drawing digits and seeing live predictions.",
-    problem:
-      "I wanted to understand what a neural network does beyond calling a library, so I implemented training from scratch before moving to PyTorch.",
-    technologies: ["Python", "PyTorch", "NumPy", "FastAPI"],
-    screenshots: [],
-    github: "https://github.com/",
-    lessons: [
-      "Writing backpropagation by hand made the framework version finally make sense.",
-      "The model was accurate on test data and poor on my own handwriting, which taught me about distribution shift.",
+      "A platform for publishing, retrieving and managing code snippets, with LLM-powered code explanation.",
+    highlights: [
+      "Built a platform for publishing, retrieving and managing code snippets.",
+      "Added LLM-powered code explanation and main-function extraction.",
     ],
-    year: "2025",
+    technologies: ["Next.js", "Node.js", "PostgreSQL", "Swagger"],
+    screenshots: [],
+    lessons: [],
     featured: true,
   },
   {
-    slug: "campus-lost-and-found",
-    title: "Campus Lost & Found",
+    slug: "mentor-mentee-scheduling-system",
+    title: "Mentor–Mentee Scheduling System",
     description:
-      "A course group project: a searchable board where students post lost and found items.",
-    problem:
-      "Lost items on campus were reported in scattered social media groups and rarely found their owners.",
-    technologies: ["React", "Node.js", "MongoDB"],
-    screenshots: [],
-    github: "https://github.com/",
-    lessons: [
-      "Working in a team of four meant agreeing on branch and review rules before writing any code.",
-      "Image uploads needed size limits and moderation that we had not planned for.",
+      "A web app where mentors run sessions and mentees book appointments, with feedback and conflict handling.",
+    highlights: [
+      "Implemented authentication, scheduling, appointment booking, feedback and conflict-handling workflows.",
+      "Tested REST endpoints and booking-conflict cases using Postman.",
     ],
-    year: "2024",
+    technologies: ["React", "Node.js", "PostgreSQL", "Postman"],
+    screenshots: [],
+    github: "https://github.com/sumaiyaa110/MentorMatrix",
+    lessons: [],
+    featured: true,
+  },
+  {
+    slug: "printing-management-system",
+    title: "Printing Management System",
+    description: "A printing management tool written as shell scripts for the Linux command line.",
+    highlights: [],
+    technologies: ["Shell scripting", "Linux CLI"],
+    screenshots: [],
+    github: "https://github.com/sumaiyaa110/Printing-Management-System",
+    lessons: [],
+  },
+  {
+    slug: "online-cafe-management-system",
+    title: "Online Cafe Management System",
+    description: "A web application for managing an online cafe.",
+    highlights: [],
+    technologies: ["Web application"],
+    screenshots: [],
+    lessons: [],
   },
 ];
 

@@ -75,15 +75,18 @@ export interface Project {
   title: string;
   /** One or two sentences for the card. */
   description: string;
-  /** The problem this project solves. */
-  problem: string;
+  /** What you built, as short bullet points. */
+  highlights: string[];
+  /** The problem this project solves. Leave out to hide the section. */
+  problem?: string;
   technologies: string[];
   /** Paths under /public, e.g. "/images/projects/my-app.png". */
   screenshots: string[];
   github?: string;
   demo?: string;
+  /** What you learned. An empty list hides the section. */
   lessons: string[];
-  year: string;
+  year?: string;
   featured?: boolean;
 }
 
@@ -100,16 +103,28 @@ export interface Experience {
   link?: string;
 }
 
+export interface Publication {
+  title: string;
+  /** Where it was published, e.g. the workshop or conference name. */
+  venue: string;
+  kind: "workshop" | "conference";
+  year: string;
+  /** DOI without the https://doi.org/ prefix. */
+  doi?: string;
+  /** Link to the paper, if there is no DOI. */
+  link?: string;
+}
+
 export interface Course {
   title: string;
   provider: string;
-  year: string;
+  year?: string;
   link?: string;
 }
 
 export interface Achievement {
   title: string;
   issuer?: string;
-  year: string;
+  year?: string;
   description?: string;
 }
