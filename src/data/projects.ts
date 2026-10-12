@@ -19,6 +19,7 @@ export const projects: Project[] = [
     ],
     technologies: ["Next.js", "Node.js", "PostgreSQL", "Swagger", "Jenkins"],
     screenshots: [],
+    github: "https://github.com/sumaiyaa110/Fresh-Finds-University",
     lessons: [],
     featured: true,
   },
@@ -68,6 +69,7 @@ export const projects: Project[] = [
     highlights: [],
     technologies: ["Web application"],
     screenshots: [],
+    github: "https://github.com/sumaiyaa110/cuet-virtual-cafe",
     lessons: [],
   },
 ];
