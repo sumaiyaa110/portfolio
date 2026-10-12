@@ -115,10 +115,14 @@ export interface Publication {
   link?: string;
 }
 
+/** A certificate or completed course. */
 export interface Course {
   title: string;
   provider: string;
+  /** When it was issued, e.g. "Jul 2026". */
   year?: string;
+  description?: string;
+  /** Public page that verifies the certificate. */
   link?: string;
 }
 
