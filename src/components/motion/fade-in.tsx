@@ -1,34 +1,30 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface FadeInProps {
   children: React.ReactNode;
-  /** Seconds to wait before animating; use small steps to stagger a list. */
-  delay?: number;
+  /** Position in a list (0, 1, 2, ...), used to stagger neighbouring items. */
+  stagger?: number;
   className?: string;
 }
 
 /**
- * Fades content in and lifts it slightly the first time it scrolls into view.
- * Renders statically for visitors who prefer reduced motion.
+ * Fades content in and lifts it slightly as it scrolls into view.
+ *
+ * Pure CSS (a scroll-driven animation, see `.fade-in` in globals.css), so the
+ * content is always in the HTML and visible: browsers without support, visitors
+ * who prefer reduced motion, and crawlers simply see it without the effect.
  */
-export function FadeIn({ children, delay = 0, className }: FadeInProps) {
-  const reduceMotion = useReducedMotion();
-
-  if (reduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
+export function FadeIn({ children, stagger = 0, className }: FadeInProps) {
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.45, delay, ease: "easeOut" }}
+    <div
+      className={cn("fade-in", className)}
+      style={
+        stagger > 0
+          ? ({ "--fade-stagger": Math.min(stagger, 5) } as React.CSSProperties)
+          : undefined
+      }
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
