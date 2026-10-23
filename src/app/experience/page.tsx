@@ -1,4 +1,5 @@
 import { Entry, EntryList, Highlights } from "@/components/shared/entry";
+import { JsonLd } from "@/components/shared/json-ld";
 import { PageHeader } from "@/components/shared/page-header";
 import { Section } from "@/components/shared/section";
 import {
@@ -8,7 +9,7 @@ import {
   experience,
   publications,
 } from "@/data/experience";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, publicationsJsonLd } from "@/lib/seo";
 import type { Experience, Publication } from "@/types/content";
 
 const description =
@@ -88,6 +89,10 @@ export default function ExperiencePage() {
 
   return (
     <>
+      {publications.length > 0 && (
+        <JsonLd data={publicationsJsonLd(publications)} />
+      )}
+
       <PageHeader
         eyebrow="Experience"
         title="Research & experience"

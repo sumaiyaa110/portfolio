@@ -89,7 +89,7 @@
     @apply border-border outline-ring/50;
   }
   html {
-    @apply font-sans scroll-smooth;
+    @apply font-sans motion-safe:scroll-smooth;
   }
   body {
     @apply bg-background text-foreground;
@@ -145,7 +145,32 @@
   }
 }
 
+/*
+ * Scroll-in animation for <FadeIn>. Content is visible by default; the effect
+ * is only added where scroll-driven animations are supported and motion is OK.
+ */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+      animation: fade-in linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--fade-stagger, 0) * 6%)
+        entry calc(50% + var(--fade-stagger, 0) * 6%);
+    }
+  }
+}
+
 @media print {
+  .fade-in {
+    animation: none !important;
+  }
   .no-print {
     display: none !important;
   }

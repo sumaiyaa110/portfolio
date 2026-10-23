@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { GitHubSection } from "@/components/github/github-section";
@@ -5,18 +6,20 @@ import { Intro } from "@/components/home/intro";
 import { Stats } from "@/components/home/stats";
 import { FadeIn } from "@/components/motion/fade-in";
 import { ProjectGrid } from "@/components/projects/project-card";
+import { JsonLd } from "@/components/shared/json-ld";
 import { Section } from "@/components/shared/section";
 import { profile } from "@/data/profile";
 import { featuredProjects } from "@/data/projects";
 import { personJsonLd } from "@/lib/seo";
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
-      />
+      <JsonLd data={personJsonLd()} />
 
       <Intro />
       <Stats />

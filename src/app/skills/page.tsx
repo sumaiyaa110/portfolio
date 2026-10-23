@@ -19,7 +19,7 @@ export default function SkillsPage() {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {skillCategories.map((category, index) => (
-          <FadeIn key={category.title} delay={Math.min(index, 5) * 0.05}>
+          <FadeIn key={category.title} stagger={index % 3}>
             <section className="surface h-full p-5 sm:p-6">
               <h2 className="text-lg font-bold">{category.title}</h2>
               {category.description && (

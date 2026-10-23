@@ -6,6 +6,8 @@ interface ProjectScreenshotProps {
   /** Path under /public. When missing, a gradient placeholder is shown. */
   src?: string;
   title: string;
+  /** Alt text; defaults to "Screenshot of <title>". */
+  alt?: string;
   className?: string;
   priority?: boolean;
 }
@@ -13,6 +15,7 @@ interface ProjectScreenshotProps {
 export function ProjectScreenshot({
   src,
   title,
+  alt = `Screenshot of ${title}`,
   className,
   priority,
 }: ProjectScreenshotProps) {
@@ -26,7 +29,7 @@ export function ProjectScreenshot({
       {src ? (
         <Image
           src={src}
-          alt={`Screenshot of ${title}`}
+          alt={alt}
           fill
           priority={priority}
           sizes="(min-width: 1024px) 480px, 100vw"

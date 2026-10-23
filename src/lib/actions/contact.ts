@@ -78,7 +78,8 @@ export async function sendContactMessage(
           process.env.CONTACT_FROM_EMAIL ?? "Portfolio <onboarding@resend.dev>",
         to: process.env.CONTACT_TO_EMAIL ?? profile.email,
         reply_to: email,
-        subject: `Portfolio message from ${name}`,
+        // Collapse whitespace so a crafted name cannot break the subject line.
+        subject: `Portfolio message from ${name.replace(/\s+/g, " ")}`,
         text: `From: ${name} <${email}>\n\n${message}`,
       }),
     });

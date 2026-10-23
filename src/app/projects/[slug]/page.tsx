@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeftIcon } from "lucide-react";
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 import { ProjectLinks } from "@/components/projects/project-links";
 import { ProjectScreenshot } from "@/components/projects/project-screenshot";
+import { JsonLd } from "@/components/shared/json-ld";
 import { PageHeader } from "@/components/shared/page-header";
 import { Section } from "@/components/shared/section";
 import { TagList } from "@/components/shared/tag";
-import { getProject, projects } from "@/data/projects";
-import { createMetadata } from "@/lib/seo";
+import { getAdjacentProjects, getProject, projects } from "@/data/projects";
+import { createMetadata, projectJsonLd } from "@/lib/seo";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -55,9 +56,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   // screenshots are added.
   const screenshots: (string | undefined)[] =
     project.screenshots.length > 0 ? project.screenshots : [undefined];
+  const { previous, next } = getAdjacentProjects(project.slug);
 
   return (
     <article>
+      <JsonLd data={projectJsonLd(project)} />
+
       <Link
         href="/projects"
         className="mt-10 inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
@@ -81,6 +85,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             key={src ?? "placeholder"}
             src={src}
             title={project.title}
+            alt={
+              screenshots.length > 1
+                ? `Screenshot ${index + 1} of ${screenshots.length} of ${project.title}`
+                : undefined
+            }
             priority={index === 0}
             className={screenshots.length === 1 ? "sm:col-span-2" : undefined}
           />
@@ -112,6 +121,42 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </Section>
         )}
       </div>
+
+      {(previous || next) && (
+        <nav
+          aria-label="More projects"
+          className="mt-16 grid gap-3 border-t pt-8 sm:grid-cols-2"
+        >
+          {previous && (
+            <Link
+              href={`/projects/${previous.slug}`}
+              className="surface surface-hover group flex flex-col gap-1 p-4"
+            >
+              <span className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
+                <ArrowLeftIcon className="size-3.5" />
+                Previous project
+              </span>
+              <span className="font-heading font-semibold group-hover:text-primary">
+                {previous.title}
+              </span>
+            </Link>
+          )}
+          {next && (
+            <Link
+              href={`/projects/${next.slug}`}
+              className="surface surface-hover group flex flex-col items-end gap-1 p-4 text-right sm:col-start-2"
+            >
+              <span className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
+                Next project
+                <ArrowRightIcon className="size-3.5" />
+              </span>
+              <span className="font-heading font-semibold group-hover:text-primary">
+                {next.title}
+              </span>
+            </Link>
+          )}
+        </nav>
+      )}
     </article>
   );
 }

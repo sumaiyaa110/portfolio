@@ -1,63 +1,15 @@
-import { ImageResponse } from "next/og";
-
 import { profile } from "@/data/profile";
+import { ogImageSize, socialImage } from "@/lib/og-image";
 
 // The preview image shown when the site is shared on social media or in chat.
 export const alt = `${profile.name}: ${profile.role}`;
-export const size = { width: 1200, height: 630 };
+export const size = ogImageSize;
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          padding: 80,
-          background: "#0b0f17",
-          color: "#f1f5f4",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            fontSize: 28,
-            letterSpacing: 4,
-            textTransform: "uppercase",
-            color: "#34d399",
-          }}
-        >
-          {profile.role} · {profile.university}
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-          <div style={{ display: "flex", fontSize: 96, fontWeight: 600 }}>
-            {profile.name}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 36,
-              lineHeight: 1.4,
-              color: "#a3adb8",
-              maxWidth: 960,
-            }}
-          >
-            {profile.tagline}
-          </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            borderTop: "6px solid #34d399",
-          }}
-        />
-      </div>
-    ),
-    size,
-  );
+  return socialImage({
+    eyebrow: `${profile.role} · ${profile.university}`,
+    title: profile.name,
+    description: profile.tagline,
+  });
 }
