@@ -15,7 +15,7 @@ one emerald accent colour, in light and dark mode.
 | [TypeScript](https://www.typescriptlang.org) | Type-safe code and content |
 | [Tailwind CSS 4](https://tailwindcss.com) | Styling |
 | [shadcn/ui](https://ui.shadcn.com) | Buttons, form fields, mobile menu |
-| [Framer Motion](https://www.framer.com/motion/) | Subtle scroll animations |
+| [Vitest](https://vitest.dev) | Tests for helpers and content |
 | [Vercel](https://vercel.com) | Hosting |
 
 ## Local setup
@@ -38,11 +38,17 @@ Open http://localhost:3000. The page updates as you edit files.
 | `npm run build` | Builds the production site (run this before deploying to catch errors) |
 | `npm run start` | Serves the production build locally |
 | `npm run lint` | Checks the code for common mistakes |
+| `npm run typecheck` | Checks TypeScript types |
+| `npm test` | Runs the tests, including checks that the content files are valid |
+
+GitHub Actions runs lint, typecheck, tests and a build on every push to `main`
+and on every pull request (`.github/workflows/ci.yml`).
 
 ## Make it yours
 
-All content is placeholder text. You only need to edit the files below; no
-component changes are required.
+All content lives in the data files below; no component changes are required.
+After editing, `npm test` checks for common mistakes such as a screenshot path
+that doesn't exist or a duplicate project slug.
 
 | What | Where |
 | --- | --- |
@@ -91,22 +97,33 @@ computer. On Vercel, add the same names in the project settings instead.
 ```
 public/                Images and resume.pdf
 src/
-  app/                 One folder per page, plus sitemap, robots and social image
+  app/                 One folder per page, plus sitemap, robots, manifest,
+                       icons and social preview images
   components/
     ui/                shadcn/ui primitives
     layout/            Header, navigation, footer, theme toggle
     shared/            Page header, section, entry rows, tags, icons
     home/ about/ projects/ github/ resume/ contact/
-    motion/            FadeIn scroll animation
+    motion/            FadeIn scroll animation (CSS only, no JavaScript)
   config/site.ts       Navigation and site URL
   data/                All personal content (typed)
   lib/
     github.ts          GitHub API helper
-    seo.ts             Metadata helpers
+    seo.ts             Metadata and structured data (JSON-LD) helpers
+    og-image.tsx       Social preview image layout
     actions/contact.ts Contact form server action
     knowledge.ts       All site content as plain text (see below)
   types/content.ts     Types for the data files
+tests/                 Vitest tests
 ```
+
+### SEO and sharing
+
+Every page has a title, description and canonical URL. Search engines also get
+structured data: a Person on the home page, each project with its breadcrumb
+trail, and the publications list. The browser icon and every social preview
+image are generated from `src/data/profile.ts`, and each project gets its own
+preview image, so nothing needs to be designed by hand.
 
 ### Adding an AI assistant later
 
