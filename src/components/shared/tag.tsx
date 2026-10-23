@@ -9,7 +9,7 @@ interface TagProps {
   className?: string;
 }
 
-/** Small pill for technologies, blog tags and similar metadata. */
+/** Small pill for technologies, research areas and similar metadata. */
 export function Tag({ children, href, className }: TagProps) {
   const classes = cn(
     "inline-flex items-center rounded-full bg-accent px-2.5 py-0.5 text-xs font-medium text-accent-foreground",

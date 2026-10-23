@@ -11,7 +11,6 @@ import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { resume } from "@/data/resume";
 import { skillCategories } from "@/data/skills";
-import { getAllPosts } from "@/lib/blog";
 
 /**
  * Every piece of site content as plain text, with the page it came from.
@@ -145,12 +144,6 @@ export function getKnowledgeDocuments(): KnowledgeDocument[] {
         project.lessons.length > 0 &&
           `Lessons learned: ${project.lessons.join(" ")}`,
       ),
-    })),
-    ...getAllPosts().map((post) => ({
-      id: `post-${post.slug}`,
-      title: post.title,
-      url: `/blog/${post.slug}`,
-      text: lines(post.description, post.content),
     })),
   ];
 }
