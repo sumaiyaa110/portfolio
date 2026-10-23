@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { PostList } from "@/components/blog/post-list";
 import { GitHubSection } from "@/components/github/github-section";
 import { Intro } from "@/components/home/intro";
 import { Stats } from "@/components/home/stats";
@@ -9,14 +8,9 @@ import { ProjectGrid } from "@/components/projects/project-card";
 import { Section } from "@/components/shared/section";
 import { profile } from "@/data/profile";
 import { featuredProjects } from "@/data/projects";
-import { getAllPosts } from "@/lib/blog";
 import { personJsonLd } from "@/lib/seo";
 
-const RECENT_POST_COUNT = 2;
-
 export default function HomePage() {
-  const recentPosts = getAllPosts().slice(0, RECENT_POST_COUNT);
-
   return (
     <>
       <script
@@ -60,19 +54,6 @@ export default function HomePage() {
       </Section>
 
       <GitHubSection />
-
-      {recentPosts.length > 0 && (
-        <Section
-          title="Recent notes"
-          action={
-            <Link href="/blog" className="link">
-              All notes
-            </Link>
-          }
-        >
-          <PostList posts={recentPosts} />
-        </Section>
-      )}
     </>
   );
 }
