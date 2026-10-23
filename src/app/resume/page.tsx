@@ -152,7 +152,19 @@ export default function ResumePage() {
                   <span className="font-semibold">{publication.title}.</span>{" "}
                   <span className="text-muted-foreground">
                     {publication.venue}
-                    {publication.doi && `. DOI: ${publication.doi}`}
+                    {publication.doi && (
+                      <>
+                        . DOI:{" "}
+                        <a
+                          href={`https://doi.org/${publication.doi}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-primary"
+                        >
+                          {publication.doi}
+                        </a>
+                      </>
+                    )}
                   </span>
                 </li>
               ))}
