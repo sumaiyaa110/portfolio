@@ -13,6 +13,15 @@ export const siteConfig = {
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3000")
   ).replace(/\/$/, ""),
+  contact: {
+    /**
+     * Web3Forms access key for the contact form. Get one free at
+     * https://web3forms.com by entering the email that should receive
+     * messages. It is safe to commit: it can only send mail to that address.
+     * NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY overrides it if set.
+     */
+    web3formsAccessKey: "8fc2409e-78cd-48db-a82b-edc80196d617",
+  },
   nav: [
     { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },

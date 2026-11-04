@@ -1,10 +1,7 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { profile } from "@/data/profile";
-import {
-  sendContactMessage,
-  type ContactFormState,
-} from "@/lib/actions/contact";
+import { sendContactMessage, type ContactFormState } from "@/lib/contact";
 
 const idle: ContactFormState = { status: "idle" };
 
@@ -21,6 +18,10 @@ const valid = {
 };
 
 describe("sendContactMessage", () => {
+  beforeEach(() => {
+    vi.stubEnv("NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY", "test-key");
+  });
+
   afterEach(() => {
     vi.unstubAllGlobals();
     vi.unstubAllEnvs();
@@ -28,6 +29,8 @@ describe("sendContactMessage", () => {
   });
 
   it("reports each invalid field and keeps what was typed", async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
     const result = await sendContactMessage(
       idle,
       form({ name: "A", email: "nope", message: "short" }),
@@ -39,6 +42,7 @@ describe("sendContactMessage", () => {
       "name",
     ]);
     expect(result.values?.email).toBe("nope");
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it("silently accepts honeypot submissions without sending", async () => {
@@ -52,16 +56,15 @@ describe("sendContactMessage", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it("points to email when no API key is configured", async () => {
-    vi.stubEnv("RESEND_API_KEY", "");
+  it("points to email when no access key is configured", async () => {
+    vi.stubEnv("NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY", "");
     const result = await sendContactMessage(idle, form(valid));
     expect(result.status).toBe("error");
     expect(result.message).toContain(profile.email);
   });
 
-  it("sends through Resend with a single-line subject", async () => {
-    vi.stubEnv("RESEND_API_KEY", "test-key");
-    const fetchMock = vi.fn(async () => Response.json({ id: "1" }));
+  it("sends through Web3Forms with a single-line subject", async () => {
+    const fetchMock = vi.fn(async () => Response.json({ success: true }));
     vi.stubGlobal("fetch", fetchMock);
 
     const result = await sendContactMessage(
@@ -70,21 +73,43 @@ describe("sendContactMessage", () => {
     );
 
     expect(result.status).toBe("success");
-    const [, init] = fetchMock.mock.calls[0] as unknown as [string, RequestInit];
+    const [url, init] = fetchMock.mock.calls[0] as unknown as [
+      string,
+      RequestInit,
+    ];
+    expect(url).toBe("https://api.web3forms.com/submit");
     const body = JSON.parse(String(init.body));
+    expect(body.access_key).toBe("test-key");
     expect(body.subject).toBe("Portfolio message from Ada Bcc: someone");
-    expect(body.reply_to).toBe(valid.email);
+    expect(body.email).toBe(valid.email);
+    expect(body.message).toBe(valid.message);
   });
 
-  it("reports a failure from Resend", async () => {
-    vi.stubEnv("RESEND_API_KEY", "test-key");
+  it("reports a rejection from Web3Forms and keeps the message", async () => {
     vi.spyOn(console, "error").mockImplementation(() => {});
     vi.stubGlobal(
       "fetch",
-      vi.fn(async () => new Response("bad", { status: 500 })),
+      vi.fn(async () =>
+        Response.json({ success: false, message: "Invalid access key" }, {
+          status: 400,
+        }),
+      ),
     );
     const result = await sendContactMessage(idle, form(valid));
     expect(result.status).toBe("error");
+    expect(result.message).toContain(profile.email);
     expect(result.values?.message).toBe(valid.message);
+  });
+
+  it("handles a network failure", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => {
+        throw new TypeError("Failed to fetch");
+      }),
+    );
+    const result = await sendContactMessage(idle, form(valid));
+    expect(result.status).toBe("error");
   });
 });
