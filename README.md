@@ -68,6 +68,22 @@ Files to add under `public/`:
 - `images/projects/<name>.png`, then list the path in that project's `screenshots`
 - `resume.pdf`: the "Download PDF" button on the Resume page appears once this file exists
 
+### Contact form
+
+Messages are emailed to you through [Web3Forms](https://web3forms.com), which
+is free and needs no server or domain setup:
+
+1. Go to [web3forms.com](https://web3forms.com), enter the email address that
+   should receive messages and click **Create Access Key**.
+2. Copy the key from the email they send and paste it into
+   `contact.web3formsAccessKey` in `src/config/site.ts`.
+3. Commit and push. The form works on the next deploy.
+
+The key can only send mail to your address, so it is safe to commit. Until it
+is set, the form tells visitors to email you directly. Web3Forms' free plan
+only accepts messages sent from the visitor's browser, which is how the form
+sends them.
+
 ### GitHub section
 
 Set `github.username` in `src/data/profile.ts`. Repositories and recent
@@ -88,8 +104,7 @@ computer. On Vercel, add the same names in the project settings instead.
 | Variable | Purpose |
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Only for a custom domain. On Vercel the site URL is detected automatically |
-| `RESEND_API_KEY` | Lets the contact form send email through [Resend](https://resend.com) |
-| `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` | Where contact mail goes and who it is from |
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | Overrides the contact form key in `src/config/site.ts` (optional) |
 | `GITHUB_TOKEN` | Enables the GitHub contribution calendar |
 
 ## Project structure
@@ -111,7 +126,7 @@ src/
     github.ts          GitHub API helper
     seo.ts             Metadata and structured data (JSON-LD) helpers
     og-image.tsx       Social preview image layout
-    actions/contact.ts Contact form server action
+    contact.ts         Contact form validation and sending (Web3Forms)
     knowledge.ts       All site content as plain text (see below)
   types/content.ts     Types for the data files
 tests/                 Vitest tests

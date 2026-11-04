@@ -6,10 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  sendContactMessage,
-  type ContactFormState,
-} from "@/lib/actions/contact";
+import { sendContactMessage, type ContactFormState } from "@/lib/contact";
 
 const initialState: ContactFormState = { status: "idle" };
 
