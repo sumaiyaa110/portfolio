@@ -1,4 +1,10 @@
-import { GlobeIcon, MailIcon } from "lucide-react";
+import {
+  BookOpenTextIcon,
+  FlaskConicalIcon,
+  GlobeIcon,
+  IdCardIcon,
+  MailIcon,
+} from "lucide-react";
 
 import type { SocialPlatform } from "@/types/content";
 
@@ -36,6 +42,9 @@ export const socialIcons: Record<
 > = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
+  researchgate: FlaskConicalIcon,
+  "acl-anthology": BookOpenTextIcon,
+  orcid: IdCardIcon,
   x: XIcon,
   email: MailIcon,
   website: GlobeIcon,

@@ -37,6 +37,7 @@ export const projects: Project[] = [
     ],
     technologies: ["Next.js", "Node.js", "PostgreSQL", "Swagger"],
     screenshots: [],
+    github: "https://github.com/Jannatul-Ferdauss/CodeShare-Hub",
     lessons: [],
     featured: true,
   },

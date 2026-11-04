@@ -13,7 +13,7 @@ import { createMetadata, publicationsJsonLd } from "@/lib/seo";
 import type { Experience, Publication } from "@/types/content";
 
 const description =
-  "Research publications, shared-task results, awards, certificates and activities from my time as an undergraduate.";
+  "Research publications, internships, leadership roles, shared-task results, awards, certificates and activities from my time as an undergraduate.";
 
 export const metadata = createMetadata({
   title: "Experience",
@@ -61,7 +61,7 @@ function ExperienceEntries({ items }: { items: Experience[] }) {
           subtitle={item.organization}
           meta={item.location}
         >
-          <p>{item.summary}</p>
+          {item.summary && <p>{item.summary}</p>}
           <Highlights items={item.highlights} />
           {item.link && (
             <a
@@ -86,6 +86,7 @@ export default function ExperiencePage() {
   );
   const research = experience.filter((item) => item.kind === "research");
   const internships = experience.filter((item) => item.kind === "internship");
+  const leadership = experience.filter((item) => item.kind === "leadership");
 
   return (
     <>
@@ -131,6 +132,12 @@ export default function ExperiencePage() {
       {internships.length > 0 && (
         <Section title="Internships" id="internships">
           <ExperienceEntries items={internships} />
+        </Section>
+      )}
+
+      {leadership.length > 0 && (
+        <Section title="Leadership" id="leadership">
+          <ExperienceEntries items={leadership} />
         </Section>
       )}
 

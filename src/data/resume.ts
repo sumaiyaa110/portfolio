@@ -11,7 +11,7 @@ import { skillCategories } from "./skills";
  */
 export const resume = {
   summary:
-    "Computer Science and Engineering undergraduate at Chittagong University of Engineering and Technology (CUET) with research experience in Natural Language Processing, Multimodal AI, Computer Vision, and Vision-Language Models. Published research in ACL-affiliated workshops and international conferences, with hands-on experience in deep learning, model fine-tuning, experimental analysis, and AI system development. Skilled in Python, web technologies, databases, REST APIs, and software development practices.",
+    "Computer Science and Engineering undergraduate at Chittagong University of Engineering and Technology (CUET) with research experience in Natural Language Processing, Multimodal AI, Computer Vision, and Vision-Language Models. Published research in ACL-affiliated workshops and international conferences, with hands-on experience in deep learning, model fine-tuning, experimental analysis, and AI system development. Skilled in Python, web technologies, databases, REST APIs, and software development practices, with an interest in building reliable AI-powered applications and contributing to machine learning research.",
   contact: {
     email: profile.email,
     location: profile.location,
