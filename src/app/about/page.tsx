@@ -71,6 +71,19 @@ export default function AboutPage() {
             ))}
           </ol>
         </Section>
+
+        {profile.languages.length > 0 && (
+          <Section title="Languages">
+            <dl className="space-y-2 leading-7">
+              {profile.languages.map((language) => (
+                <div key={language.name} className="flex flex-wrap gap-x-2">
+                  <dt className="font-medium">{language.name}</dt>
+                  <dd className="text-muted-foreground">{language.level}</dd>
+                </div>
+              ))}
+            </dl>
+          </Section>
+        )}
       </div>
     </>
   );

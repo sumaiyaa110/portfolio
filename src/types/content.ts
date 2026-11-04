@@ -3,7 +3,15 @@
  * unless you are adding a new field.
  */
 
-export type SocialPlatform = "github" | "linkedin" | "x" | "email" | "website";
+export type SocialPlatform =
+  | "github"
+  | "linkedin"
+  | "researchgate"
+  | "acl-anthology"
+  | "orcid"
+  | "x"
+  | "email"
+  | "website";
 
 export interface SocialLink {
   platform: SocialPlatform;
@@ -43,6 +51,8 @@ export interface Profile {
   background: string[];
   interests: string[];
   goals: string[];
+  /** Spoken languages, e.g. { name: "English", level: "Fluent" }. */
+  languages: { name: string; level: string }[];
 }
 
 export interface Education {
@@ -90,7 +100,7 @@ export interface Project {
   featured?: boolean;
 }
 
-export type ExperienceKind = "research" | "internship";
+export type ExperienceKind = "research" | "internship" | "leadership";
 
 export interface Experience {
   kind: ExperienceKind;
@@ -98,7 +108,7 @@ export interface Experience {
   organization: string;
   period: string;
   location?: string;
-  summary: string;
+  summary?: string;
   highlights?: string[];
   link?: string;
 }

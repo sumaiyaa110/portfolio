@@ -33,6 +33,33 @@ export const publications: Publication[] = [
     year: "2026",
   },
   {
+    kind: "workshop",
+    title:
+      "Nile Nexus at ImageEval 2026 Shared Tasks: Single-Choice Reformulation and Confidence-Calibrated Refinement for Culturally Grounded Hallucination Detection",
+    venue:
+      "Proceedings of the Fourth Arabic Natural Language Processing Conference: Shared Tasks (ArabicNLP 2026)",
+    year: "2026",
+    link: "https://aclanthology.org/2026.arabicnlp-sharedtasks.87/",
+  },
+  {
+    kind: "workshop",
+    title:
+      "Nile Nexus at ArGuard Shared Tasks: Leakage-Controlled MARBERTv2–SVM Ensemble for Arabic Harmful-Prompt Classification",
+    venue:
+      "Proceedings of the Fourth Arabic Natural Language Processing Conference: Shared Tasks (ArabicNLP 2026)",
+    year: "2026",
+    link: "https://aclanthology.org/2026.arabicnlp-sharedtasks.41/",
+  },
+  {
+    kind: "workshop",
+    title:
+      "Nile Nexus at BAREC Shared Task 2026: Enhancing Fine-Grained Arabic Readability Assessment through Ordinal-Aware Transformer Ensembling and Decision Calibration",
+    venue:
+      "Proceedings of the Fourth Arabic Natural Language Processing Conference: Shared Tasks (ArabicNLP 2026)",
+    year: "2026",
+    link: "https://aclanthology.org/2026.arabicnlp-sharedtasks.20/",
+  },
+  {
     kind: "conference",
     title:
       "A Multiclass Polycystic Ovary Syndrome Phenotype Prediction Scheme Using Clinical Data, SHAP, and LightGBM Technique",
@@ -64,8 +91,45 @@ export const publications: Publication[] = [
   },
 ];
 
-/** Research positions and internships. Add entries here when you have them. */
-export const experience: Experience[] = [];
+/** Research positions, internships and leadership roles, newest first. */
+export const experience: Experience[] = [
+  {
+    kind: "research",
+    role: "Research Intern (AI Research)",
+    organization: "TechOptions (BanglaLLM)",
+    period: "Aug 2026 – Present",
+    location: "Dhaka, Bangladesh (Remote)",
+    summary:
+      "Contribute to Bengali-language AI research, including Bangla NLP/LLMs, data preparation, model evaluation and language-model experiments.",
+  },
+  {
+    kind: "internship",
+    role: "Industrial Attachment Trainee",
+    organization: "Mysoftheaven (BD) Ltd.",
+    period: "Sep 2026",
+    location: "Dhaka, Bangladesh (On-site)",
+    summary: "Completed a three-week industrial attachment.",
+  },
+  {
+    kind: "leadership",
+    role: "Organizing Secretary (ML Wing)",
+    organization: "IEEE Computer Society CUET Student Branch Chapter",
+    period: "Aug 2026 – Present",
+    location: "Chattogram, Bangladesh",
+  },
+  {
+    kind: "leadership",
+    role: "Vice President",
+    organization: "Sylhet Students’ Forum, CUET",
+    period: "Aug 2026 – Present",
+  },
+  {
+    kind: "leadership",
+    role: "Publication Secretary",
+    organization: "CUET Computer Club",
+    period: "Aug 2026 – Present",
+  },
+];
 
 export const achievements: Achievement[] = [
   {
@@ -88,6 +152,12 @@ export const achievements: Achievement[] = [
     description: "Macro-F1: 0.8357.",
   },
   {
+    title: "3rd place, BAREC Shared Task (Strict Track)",
+    issuer: "ArabicNLP 2026",
+    year: "2026",
+    description: "Fine-grained Arabic readability assessment. QWK: 0.848.",
+  },
+  {
     title: "4th place, Abusive Tamil Text Targeting Women on Social Media",
     issuer: "DravidianLangTech@ACL 2026",
     year: "2026",
@@ -97,6 +167,18 @@ export const achievements: Achievement[] = [
     title: "5th place, Cross-Cultural Misogynistic Meme Detection (CC-MMD)",
     issuer: "ICMI 2026 Grand Challenge",
     year: "2026",
+  },
+  {
+    title: "5th place, ArGuard Shared Task: Arabic Harmful-Prompt Classification",
+    issuer: "ArabicNLP 2026",
+    year: "2026",
+    description: "Macro-F1: 0.860.",
+  },
+  {
+    title: "6th place, ImageEval 2026 AynVQA Shared Task (English Track)",
+    issuer: "ArabicNLP 2026",
+    year: "2026",
+    description: "Accuracy: 0.942.",
   },
   {
     title: "Top 20, Solvio AI Hackathon",

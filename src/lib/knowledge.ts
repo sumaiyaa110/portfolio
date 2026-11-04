@@ -44,6 +44,9 @@ export function getKnowledgeDocuments(): KnowledgeDocument[] {
         `Academic focus: ${profile.focus.join(", ")}.`,
         `Interests: ${profile.interests.join("; ")}.`,
         `Future goals: ${profile.goals.join(" ")}`,
+        `Languages: ${profile.languages
+          .map((language) => `${language.name} (${language.level})`)
+          .join(", ")}.`,
       ),
     },
     {

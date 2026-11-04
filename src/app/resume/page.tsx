@@ -173,15 +173,17 @@ export default function ResumePage() {
         )}
 
         {resume.experience.length > 0 && (
-          <ResumeSection title="Experience">
+          <ResumeSection title="Experience & leadership">
             {resume.experience.map((item) => (
               <ResumeItem
                 key={`${item.organization}-${item.role}`}
                 title={item.role}
-                subtitle={item.organization}
+                subtitle={[item.organization, item.location]
+                  .filter(Boolean)
+                  .join(" · ")}
                 period={item.period}
               >
-                <p>{item.summary}</p>
+                {item.summary && <p>{item.summary}</p>}
                 <Bullets items={item.highlights} />
               </ResumeItem>
             ))}
@@ -217,6 +219,16 @@ export default function ResumePage() {
                 </dd>
               </div>
             ))}
+            {profile.languages.length > 0 && (
+              <div className="contents">
+                <dt className="font-semibold">Languages</dt>
+                <dd className="text-foreground/90">
+                  {profile.languages
+                    .map((language) => `${language.name} (${language.level})`)
+                    .join(", ")}
+                </dd>
+              </div>
+            )}
           </dl>
         </ResumeSection>
 

@@ -33,6 +33,21 @@ export const profile: Profile = {
       href: "https://www.linkedin.com/in/sumaiya-zaman-bb2a17353/",
     },
     {
+      platform: "researchgate",
+      label: "ResearchGate",
+      href: "https://www.researchgate.net/profile/Sumaiya-Zaman-16",
+    },
+    {
+      platform: "acl-anthology",
+      label: "ACL Anthology",
+      href: "https://aclanthology.org/people/sumaiya-zaman/",
+    },
+    {
+      platform: "orcid",
+      label: "ORCID",
+      href: "https://orcid.org/0009-0000-0130-5963",
+    },
+    {
       platform: "email",
       label: "Email",
       href: "mailto:sumaiya.zaman2107@gmail.com",
@@ -49,7 +64,10 @@ export const profile: Profile = {
   },
   currently: [
     { label: "Studying", value: "Computer Science and Engineering at CUET" },
-    { label: "Researching", value: "Multimodal and multilingual NLP" },
+    {
+      label: "Researching",
+      value: "Bangla NLP and LLMs at TechOptions (BanglaLLM)",
+    },
     { label: "Building", value: "LLM-powered web applications" },
   ],
   background: [
@@ -69,5 +87,9 @@ export const profile: Profile = {
   goals: [
     "Contribute to impactful machine learning research.",
     "Build reliable AI-powered applications.",
+  ],
+  languages: [
+    { name: "Bengali", level: "Native" },
+    { name: "English", level: "Professional working proficiency" },
   ],
 };

@@ -27,11 +27,18 @@ export const journey: JourneyEntry[] = [
     period: "2026",
     title: "First publications",
     description:
-      "Published three papers at ACL 2026 workshops with team CUET_SYNTHETICA, alongside conference papers on healthcare AI. Our hope speech detection system for code-mixed Tulu placed 1st in both tasks at DravidianLangTech.",
+      "Published three papers at ACL 2026 workshops with team CUET_SYNTHETICA, alongside conference papers on healthcare AI. Our hope speech detection system for code-mixed Tulu placed 1st in both tasks at DravidianLangTech. With team Nile Nexus I published three more papers at the ArabicNLP 2026 shared tasks, placing 3rd in BAREC readability assessment.",
     learned: [
       "Transformer fine-tuning",
       "Vision-language models",
       "Explainable AI",
     ],
+  },
+  {
+    period: "Aug 2026",
+    title: "Research internship and student leadership",
+    description:
+      "Joined TechOptions (BanglaLLM) as a remote AI research intern working on Bangla NLP and LLMs, and completed a three-week industrial attachment at Mysoftheaven (BD) Ltd. I also took on roles as Organizing Secretary of the ML Wing at the IEEE Computer Society CUET Student Branch Chapter, Vice President of the Sylhet Students’ Forum and Publication Secretary of the CUET Computer Club.",
+    learned: ["Bangla NLP", "Data preparation", "Model evaluation"],
   },
 ];
