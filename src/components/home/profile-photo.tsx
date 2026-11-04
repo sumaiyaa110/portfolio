@@ -2,7 +2,10 @@ import Image from "next/image";
 
 import { profile } from "@/data/profile";
 
-const SIZE = 288;
+// The photo is shown whole, in a 3:4 portrait frame. Change these if you use
+// a photo with a different shape.
+const WIDTH = 288;
+const HEIGHT = 384;
 
 /** Your photo, or your initials until `profile.photo` is set. */
 export function ProfilePhoto() {
@@ -18,10 +21,13 @@ export function ProfilePhoto() {
           <Image
             src={profile.photo}
             alt={`Portrait of ${profile.name}`}
-            width={SIZE}
-            height={SIZE}
+            width={WIDTH}
+            height={HEIGHT}
             priority
-            className="size-40 rounded-[calc(1.5rem-3px)] object-cover sm:size-56 lg:size-72"
+            // Served as the original file, so it never depends on Vercel's
+            // image optimisation being available.
+            unoptimized
+            className="aspect-[3/4] w-40 rounded-[calc(1.5rem-3px)] object-cover sm:w-56 lg:w-72"
           />
         ) : (
           <div
