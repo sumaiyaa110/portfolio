@@ -20,7 +20,7 @@ export const siteConfig = {
      * messages. It is safe to commit: it can only send mail to that address.
      * NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY overrides it if set.
      */
-    web3formsAccessKey: "",
+    web3formsAccessKey: "8fc2409e-78cd-48db-a82b-edc80196d617",
   },
   nav: [
     { label: "About", href: "/about" },
